@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeetMyHarvest Login page</title>
+    <link rel="stylesheet" href="/Frontend/assets/css/login.css">
+    <link
+      rel="shortcut icon"
+      href="/Frontend/assets/images/logo.png"
+      type="image/x-icon"
+    />
+</head>
+<body>
+    <div id="loadingPage">
+        <h1 class="brand">MeetMyHarvest</h1>
+        <img src="/Frontend/assets/images/loading.gif" alt=""></div>
+    <div id="content">
+
+        <section class="login-section">
+            <h1 class="brand">MeetMyHarvest</h1>
+            <div class="logincontainer">
+                <div class="loginimg">
+                    <img src="/Frontend/assets/images/about1.png" alt="">
+                </div>
+
+                <div class="loginform">
+                    <form id="form">
+                        <h2>Login</h2>
+                        <div class="form">
+                            <p id="error"></p>
+                            <label>Username or Email</label>
+                            <div id="row">
+                                <input type="text" id="username" placeholder="Enter your Username" required/>
+                            </div>
+        
+                            <label>Password</label>
+                            <div id="row">
+                                <input type="password" id="password" placeholder="Type a Password" required/>
+                            </div>
+        
+                            <div class="btncontainer">
+                                <button type="submit" id="btn" onclick="event.preventDefault(); submitForm();">Submit</button>
+                                <p class="redirect">New to the community? <br> <a href="/Frontend/htmls/register.html">Signup</a></p>
+                            </div>
+                        </div>
+        
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <script>
+        const token = localStorage.getItem("token");
+        const username = localStorage.getItem("username");
+        if(token) {
+            window.location = "/Frontend/htmls/userHome.html"
+        }
+    
+    </script>
+    <script src="/Frontend/assets/js/login.js"></script>
+</body>
+</html>
