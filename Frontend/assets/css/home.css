@@ -1,0 +1,153 @@
+@font-face {
+    font-family: "Neue Montreal";
+    src: url(../fonts/Neue-montreal/NeueMontreal-Regular.otf);
+}
+@font-face {
+    font-family: "Neue Montreal Light";
+    src: url(../fonts/Neue-montreal/NeueMontreal-Light.otf);
+}
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Neue Montreal;
+}
+.navbar {
+    border-bottom: 2px solid #850F87; /*#0F5D85*/
+    border-top: none; /*#0F5D85*/
+    border-left: none; /*#0F5D85*/
+    border-right: none;
+    /* background-color: #c5c356; */
+    /* background-color: #daa520; */
+    background-color: #87850f;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav_link {
+    align-items: center;
+    display: flex;
+}
+.nav_img {
+    /* border: 1px solid blue; */
+    height: 130px;
+    margin-top: 10px;
+    padding-left: 40px;
+    padding-right: 20px;
+}
+.nav_img > img {
+    cursor: pointer;
+    /* border: 1px solid blue; */
+    height: 130px;
+}
+.nav_links {
+    padding: 20px;
+    /* border: 1px solid green; */
+    /* display: flex; */
+}
+.nav_links_list {
+    display: flex;
+    align-items: center;
+    
+}
+.nav_links_list > li {
+    cursor: pointer;
+    list-style: none;
+    color: #eee4e4;
+    padding-right: 30px;
+}
+.cart_number {
+    position: absolute;
+    text-align: center;
+    font-size: 12px;
+    padding: 1px;
+    padding-top: 0px;
+    width: 10px;
+    height: 12px;
+    color: #fff;
+    border-radius: 10px;
+    border: 2px solid #850F87;
+    margin-top: -37px;
+    margin-left: 37px;
+}
+.cart_img >a img {
+    cursor: pointer;
+    height: 30px;
+    /* padding-bottom: 5px; */
+    /* padding-right: px; */
+}
+.search_login_reg_btn {
+    /* border: 1px solid blue; */
+    display: flex;
+    margin-right: 0px;
+    height: 30px;
+    padding: 20px;
+    align-items: center;
+
+}
+.search_btn_container {
+    padding-right: 30px;
+    display: flex;
+}
+.search_btn {
+    background-color: #eee4e4;
+    height: 40px;
+    width: 270px;
+    padding: 15px;
+    padding-right: 45px;
+    border: 1px solid #850F87;
+    border-radius: 20px;
+}
+.search_icon {
+    border: none;
+    background-color: #850F87;
+    padding: 5px;
+    margin-left: -40px;
+    height: 30px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.search_icon:hover {
+    background-color: #0F5D85;
+    transition: 1.5s ease-in-out;
+    transition: 1.5s ease;
+}
+input[type="search"]:focus {
+    border: 1px solid green;
+}
+.login_reg_btn {
+    padding-right: 40px;
+
+}
+.nav_login_btn  {
+    cursor: pointer;
+    margin-right: 5px;
+    width: 80px;
+    height: 35px;
+    background-color: #eee4e4;
+    color: #000;
+    border: none;
+    border-radius: 18px;
+}
+.nav_login_btn:hover {
+    transition: 1.5s ease-in-out;
+    border: 1px solid gold;
+    background-color: #850F87;
+    color: #fff;
+}
+.nav_register_btn {
+    cursor: pointer;
+    width: 100px;
+    height: 35px;
+    background-color: #eee4e4;
+    color: #000;
+    border: 1px solid #850F87;
+    border-radius: 13px;
+}
+.nav_register_btn:hover {
+    border: 1px solid gold;
+    background-color: #850F87;
+    color: #fff;
+    transition: 1.5s ease-in-out;
+    transition: 1.5s ease;
+}

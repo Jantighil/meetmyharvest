@@ -40,11 +40,11 @@ async function submitForm() {
 
             setTimeout(function() {
                 if (data.data[0].user_type == 'Buyer') {
-                    window.location = "http://127.0.0.1:5501/Frontend/htmls/buyers.html";
+                    window.location = "http://127.0.0.1:5501/Frontend/htmls/buyerUser.html";
                 } else if(data.data[0].user_type == 'Farmer') {
-                    window.location = "http://127.0.0.1:5501/Frontend/htmls/userHome.html";
+                    window.location = "http://127.0.0.1:5501/Frontend/htmls/farmerUser.html";
                 } else {
-                    window.location = "http://127.0.0.1:5501/Frontend/htmls/userHome.html";
+                    window.location = "http://127.0.0.1:5501/Frontend/htmls/buyerUser.html";
                 }
               }, 7000);
         } else {
