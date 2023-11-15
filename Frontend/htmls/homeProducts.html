@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Frontend/assets/css/products.css">
+
+    <style>
+        .login_reg_btn {
+            padding-right: 40px;
+        
+        }
+        .nav_login_btn  {
+            cursor: pointer;
+            margin-right: 5px;
+            width: 80px;
+            height: 35px;
+            background-color: #eee4e4;
+            color: #000;
+            border: none;
+            border-radius: 18px;
+        }
+        .nav_login_btn:hover {
+            transition: 1.5s ease-in-out;
+            border: 1px solid gold;
+            background-color: #292902;
+            color: #fff;
+        }
+        .nav_register_btn {
+            cursor: pointer;
+            width: 100px;
+            height: 35px;
+            background-color: #eee4e4;
+            color: #000;
+            border: 1px solid #292902;
+            border-radius: 13px;
+        }
+        .nav_register_btn:hover {
+            border: 1px solid gold;
+            background-color: #292902;
+            color: #fff;
+            transition: 1.5s ease-in-out;
+            transition: 1.5s ease;
+        }
+    </style>
+
+</head>
+<body onload="displayProducts();">
+    <div class="wholepage">
+        <nav class="navbar">
+            <div class="nav_link">
+                <div class="nav_img">
+                    <img onclick="window.location = '/front/index.html'" src="/front/images/logo_noBG.png" alt="">
+                </div>
+                <div class="nav_links">
+                    <ul class="nav_links_list">
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/htmls/buyerUser.html'">DASHBOARD</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/html/about.html'">ABOUT</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/html/faq.html'">FAQs</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/htmls/mission.html'">MISSION</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/html/get.html'">CONTACT</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav_btns">
+                <div class="search_login_reg_btn">
+                    <div class="login_reg_btn">
+                        <input onclick="window.location = '/Frontend/htmls/login.html'" class="nav_login_btn" type="submit" value="Log in">
+                        <input onclick="window.location = '/Frontend/htmls/register.html'" class="nav_register_btn" type="submit" value="Get Started">
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="products_container">
+            <div class="inner_products_container">
+                <div class="search_input">
+                    <img src="/Frontend/assets/images/icon/search-alt-svgrepo-com.png" alt="">
+                    <div class="line"></div>
+                    <input id="search" class="item_search" type="search" placeholder="Search...">
+                </div>
+                <div class="filter_buttons">
+                    <button class="filter_btn" id="first_filter_btn" type="button">Rice(<span>64</span>)</button>
+                    <button class="filter_btn" type="button">Tomatoes(<span>53</span>)</button>
+                    <button class="filter_btn" type="button">Cassava(<span>50</span>)</button>
+                    <button class="filter_btn" type="button">Onions(<span>25</span>)</button>
+                    <button class="filter_btn" type="button">Yam(<span>15</span>)</button>
+                </div>
+                <div id="product_items_container" class="product_items_container">
+                    <!-- <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/offer2.png" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/products/gallery-img-12.jpg" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/products/gallery-img-10.jpg" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/offer1.png" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/products/gallery-img-02.jpg" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/products/gallery-img-03.jpg" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/products/gallery-img-04.jpg" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/products/gallery-img-05.jpg" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/products/gallery-img-07.jpg" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/products/gallery-img-08.jpg" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/products/gallery-img-10.jpg" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/products/gallery-img-12.jpg" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/products/gallery-img-02.jpg" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/offer1.png" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/offer2.png" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/products/product2.jpg" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/products/blog-img.jpg" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_item">
+                        <div class="item_image">
+                            <img src="/Frontend/assets/images/products/gallery-img-06.jpg" alt="">
+                        </div>
+                        <div class="item_details">
+                            <div class="product_details">
+                                <div class="item_info">
+                                    <h3 class="product_name">Mangoes</h3>
+                                    <p>Quantity: <span>2 basket</span></p>
+                                    <p>Farmer: <span>Jonathan</span></p>
+                                    <p>Price: <span>₦50,000</span></p>
+                                </div>
+                                <div class="react_btns">
+                                    <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                    <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                                </div>
+                                <div class="item_description">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="/Frontend/assets/js/products.js"></script>
+</body>
+</html>

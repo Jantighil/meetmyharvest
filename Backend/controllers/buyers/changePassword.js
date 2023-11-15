@@ -6,7 +6,6 @@ const saltRounds = 5;
 exports.checkoldPassword = async (req, res, next) => {
     try {
         const user = await db.query("SELECT * FROM users WHERE username ILIKE $1", [req.params.buyerName]);
-        console.log(user);
         let userPassword = user.rows[0].password;
         let comparePassword = await bcrypt.compare(req.body.oldpassword, userPassword)
 
@@ -31,7 +30,7 @@ exports.patchBuyerPassword = async (req, res, next) => {
         if (passwordUpdate.rows.length === 0) {
             return res.status(404).send("User not found!")
         }
-        res.json({message: "Password Updated Successfully!!", data: passwordUpdate.rows[0]});
+        res.json({message: "Password Updated Successfully!!", passwordData: passwordUpdate.rows[0]});
     } catch (err) {
         return next(err);
     }

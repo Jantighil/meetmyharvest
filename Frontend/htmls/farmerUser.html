@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEETMYHARVEST CUSTOMER</title>
+    <link
+      rel="shortcut icon"
+      href="/front/images/logo_with_bg.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/Frontend/assets/css/farmerUser.css">
+    <style>
+         input[type="text"], input[type="number"] {
+            height: 34px;
+            margin: 4px;
+            padding-left: 5px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+        input[type="text"], input[type="number"]:hover {
+            color: rgb(4, 61, 61);
+        }
+        .product_info {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .product_info > span {
+            font-size: 16px;
+            font-weight: 400;
+        }
+        .titles {
+            color: #195012;
+            font-size: 18px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="wholepage">
+        <nav class="navbar">
+            <div class="nav_link">
+                <div class="nav_img">
+                    <img onclick="window.location = '/front/index.html'" src="/front/images/logo_noBG.png" alt="">
+                </div>
+                <div class="nav_links">
+                    <ul class="nav_links_list">
+                        <li class="nav_links_list_item">OUR MISSION</li>
+                        <li class="nav_links_list_item">ABOUT</li>
+                        <li class="nav_links_list_item">FAQs</li>
+                        <li class="nav_links_list_item">PRODUCTS</li>
+                        <li class="nav_links_list_item">CONTACT</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav_btns">
+                <div class="search_login_reg_btn">
+                    <div class="search_btn_container">
+                        <input id="search" type="search" class="search_btn" placeholder="Search products" >
+                        <a href=""><img class="search_icon" src="/Frontend/assets/images/icons/search3.png" alt="searh icon"></a>
+                    </div>
+                    <div class="login_reg_btn">
+                        <div class="userMessage">
+                            <p>Hello, <br> <span  id="username">fortune</span></p>
+                        </div>
+                        <div class="cart_img">
+                            <a href=""><img src="/Frontend/assets/images/icon/cartBGC1.png" alt="cart basket"></a><div class="cart_number">2</div>
+                        </div>
+                        <div>
+                            <input id="logout" class="nav_logout_btn" type="submit" onclick="logout();" value="Logout">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="dashboard_section">
+            <div class="dashboard_container">
+                <div class="dashboard_navs">
+                    <div class="dashboard_text_img">
+                        <img class="dashboard_img" src="/Frontend/assets/images/icon/dashboardBGC.png" alt="">
+                        <h4 class="dashboard_text">Dashboard</h4>
+                    </div>
+                    <div class="dashboard_navs_links_container">
+                        <div id="" class="dashboard_navs_links" >
+                            <div id="" class="dashboard_navs_links_list">
+                                <div id="navlink1" class="dashboard_nav_links_img_text1">
+                                    <img class="dashboard_navs_links_img1" src="/Frontend/assets/images/icon/profileBGC.png" alt="">
+                                    <h4 id="text1"  class="dashboard_navs_links_item" onclick="toggleContent(1)">My Profile</h4>
+                                </div>
+                                <div id="navlink2" class="dashboard_nav_links_img_text">
+                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/passwordBGC.png" alt="">
+                                    <h4 id="text2"  class="dashboard_navs_links_item" onclick="toggleContent(2)">Change Password</h4>
+                                </div>
+                                <div id="navlink3" class="dashboard_nav_links_img_text">
+                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/cartBGC.png" alt="">
+                                    <h4 id="text3"  class="dashboard_navs_links_item" onclick="toggleContent(3)">Product</h4>
+                                </div>
+                                <div id="navlink4" class="dashboard_nav_links_img_text">
+                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/bagBGC.png" alt="">
+                                    <h4 id="text4"  class="dashboard_navs_links_item" onclick="toggleContent(4)">View Product</h4>
+                                </div>
+                                <div id="navlink5" class="dashboard_nav_links_img_text">
+                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/settingsBGC.png" alt="">
+                                    <h4 id="text5"  class="dashboard_navs_links_item" onclick="toggleContent(5)">Settings</h4>
+                                </div>
+                                <div class="dashboard_nav_links_img_text">
+                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/logoutBGC.png" alt="">
+                                    <h4 id="" class="dashboard_navs_links_item" onclick="logout();">Log Out</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard_display_area">
+                    <div class="welcome_message_img">
+                        <h3 id="greeting"></h3>
+                        <div class="user_details_container">
+                            <div class="user_profile_img">
+                                <img src="/Frontend/assets/images/icons/avatar1.jpg" alt="">
+                            </div>
+                            <div class="user_name_role">
+                                <p class="user_name">Fortune Ifeanyi</p>
+                                <div class="user_role" id="userRole">Farmer</div>
+                            </div>
+                            <div class="profile_fast_links">
+                                <div class="link_img">
+                                    <img src="/Frontend/assets/images/icon/profileBGC.png" alt="">
+                                    <a href="">My Profile</a>
+                                </div>
+                                <div class="link_img">
+                                    <img src="/Frontend/assets/images/icon/passwordBGC.png" alt="">
+                                    <a href="">Update Password</a>
+                                </div>
+                                <div class="link_img">
+                                    <img src="/Frontend/assets/images/icon/cartBGC.png" alt="">
+                                    <a href="">Products</a>
+                                </div>
+                                <div class="link_img">
+                                    <img src="/Frontend/assets/images/icon/paymentBGC.png" alt="">
+                                    <a href="">Sold</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="content1" class="myprofile">
+                        <div class="profile_heading">
+                            <h1>My Profile</h1>
+                        </div>
+                        <div>
+                            <p id="profile_page_error" class="page_error"></p>
+                        </div>
+                        <div id="errorMessage"></div>
+                        <div id="" class="img_add_del">
+                            <img src="/Frontend/assets/images/icons/avatar1.jpg" alt="">
+                            <div id="" class="add_del_btns">
+                                <input id="" class="upload" type="button" value="Upload new picture">
+                                <input id="" class="delete" type="submit" value="Delete">
+                            </div>
+                        </div>
+                        <div id="" class="input_details">
+                            <div class="names">
+                                <label id="" class="labels" for="firstname">Firstname <br>  
+                                    <input class="inputtext1" type="text" name="firstname" placeholder="Firstname" id="firstname">
+                                    <p id="fname-error" class="nameerror"></p>
+                                 <br></label><br>
+                                <label id="" class="labels" for="lastname">Surname <br> 
+                                    <input class="inputtext1" type="text" name="lastname" placeholder="Surname" id="lastname">
+                                    <p id="lname-error" class="nameerror"></p>
+                                </label><br>
+                            </div>
+                            <label id="" class="labels" for="email">Email <br> 
+                                <input class="inputtext" type="email" name="email" placeholder="Email" id="email">
+                            </label>
+                            <p id="email-error" class="error"></p>
+                            <label id="" class="labels" for="location">Location <br> 
+                                <!-- <select id="location" placeholder="dx" class="inputtext" name="states" style="width: 850px;">
+                                    <option value="" disabled selected>Select your location</option>
+                                    <option value="apple">Abia</option>
+                                    <option value="banana">Adamawa</option>
+                                    <option value="orange">Akwaibom</option>
+                                    <option value="strawberry">Anambra</option>
+                                    <option value="strawberry">Bauchi</option>
+                                </select> -->
+                                <input class="inputtext" type="text" name="location" id="location" placeholder="Location">
+                            </label>
+                            <p id="location-error" class="error"></p>
+                            <label id="" class="labels" for="mobile_no" >Mobile <br> 
+                                <!-- <input class="inputtext" type="text" name="mobile_no" id="mobile_no" placeholder="Mobile number" size="20" maxlength=11/> -->
+                                <input class="inputtext" type="number" name="mobile_no" id="mobile_no" placeholder="Mobile number" oninput="validateNumberInput(this, 11);"/>
+                            </label>
+                            <p id="mobileNo-error" class="error"></p>
+                            <div id="" class="save_btn">
+                                <input class="savebtn" id="save_btn" type="button" value="Save Changes" onclick="updateProfile();">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="content2" class="change_password">
+                        <div class="heading">
+                            <h2>Change Password</h2>
+                        </div>
+                        <div>
+                            <p id="password_page_error" class="page_error"></p>
+                        </div>
+                        <div>
+                            <label class="labels" for="oldpassword">Old Password <br> 
+                                <input id="oldpassword" class="inputtext" type="password" name="oldpassword" placeholder="Enter your current passwword">
+                            </label> <br>
+                            <p id="oldpassworderror" class="error"></p>
+                            <label id="" class="labels" for="newpassword">New Password <br> 
+                                <input id="newpassword" class="inputtext" type="password" name="newpassword" placeholder="Enter New Password">
+                            </label>
+                            <p id="newpassworderror" class="error"></p>
+
+                            <label id="" class="labels" for="conf_newpassword">Confirm New Password <br> 
+                                <input id="confirmnewpassword" class="inputtext" type="password" name="conf_password"  placeholder="Confirm new password">
+                            </label>
+                            <p id="confirmnewpassworderror" class="error"></p>
+                            <div id="" class="save_btn">
+                                <input class="savebtn" id="save_btn" type="button" onclick="changePassword();" value="Change Password">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="content4" class="next">
+                        <div class="heading">
+
+                          <h2>View Products</h2>
+                        </div>
+                        <!-- Table to display products goes here -->
+                        <table id="productTable">
+                            <thead>
+                                <tr>
+                                    <th style="margin-right: 30px;">Image</th>
+                                    <th style="margin-right: 30px;">Name</th>
+                                    <th style="margin-right: 30px;">Description</th>
+                                    <th style="margin-right: 30px;">Price</th>
+                                    <th style="margin-right: 30px;">Quantity</th>
+                                    <th style="margin-right: 30px;">Location</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Product rows will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div id="content3" class="cart">
+                        <div id="cart" class="heading">
+                            <h2>PRODUCT</h2>
+                        </div>
+
+                        <div class="maincartcontainer">
+                            <div class="cartcontainer">
+                                <div class="cart_writeup">
+                                    <h4>Add - <span>To</span> Product</h4>
+                                </div>
+                                <div class="items">
+                                    <div class="cart_item">
+                                        <div class="cart_item_img">
+                                            <label for="productName">Product Name</label>
+                            <input style="width: 300%;" class="inputFields" type="text" id="productName" name="productName" required><br>
+
+                            <label for="productDescription">Product Description</label>
+                            <textarea style="width: 300%;" class="inputFields" id="productDescription" name="productDescription" required></textarea>
+
+                            <label for="productPrice">Product Price</label>
+                            <input style="width: 300%;" class="inputFields" type="number" id="productPrice" name="productPrice" required>
+
+                            <label for="productQuantity">Product Quantity</label>
+                            <input style="width: 300%;" class="inputFields" type="number" id="productQuantity" name="productQuantity" required>
+
+                            <label for="productLocation">Product Location</label>
+                            <input style="width: 300%;" class="inputFields" type="text" id="productLocation" name="productLocation" required>
+
+                            <!-- Image upload input -->
+                            <label  for="productImage">Product Image</label>
+                            <input  style="width: 300%;" class="inputFields" type="file" id="productImage" name="productImage" accept="image/*" required>
+
+                            <button class="nav_logout_btn" type="button" onclick="addProduct()">Add Product</button>
+                        </form>
+                        </div>
+                    </div>
+                    <div id="content5" class="next">
+                        <div class="heading">
+                            <h2>Settings</h2>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <script>
+        const username = localStorage.getItem("username");
+        const token = localStorage.getItem("token");
+
+        const greetingElement = document.getElementById("greeting");
+
+        function getGreeting() {
+            const currentTime = new Date();
+            const currentHour = currentTime.getHours();
+
+            if (currentHour >= 5 && currentHour < 12) {
+                return "Good Morning";
+            } else if (currentHour >= 12 && currentHour < 18) {
+                return "Good Afternoon";
+            } else {
+                return "Good Evening";
+            }
+        }
+
+        const greeting = getGreeting();
+        greetingElement.innerHTML = `${greeting}, ${username.replace(username[0], username[0].toUpperCase())}!`;
+
+        
+
+        // if(!token) {
+        //     window.location = "/Frontend/htmls/login.html"
+        // }
+
+        document.getElementById("username").innerHTML = `${username.replace(username[0], username[0].toUpperCase())}`;
+            
+        function logout() {
+            localStorage.removeItem('username')
+            localStorage.removeItem('token')
+            window.location = "/Frontend/htmls/login.html"
+        }
+        document.getElementById("logout").addEventListener("click", logout);
+
+    </script>
+    <script src="/Frontend/assets/js/buyerUser.js"></script>
+    <script src="/Frontend/assets/js/buyerUserReqs.js"></script>
+</body>
+</html>

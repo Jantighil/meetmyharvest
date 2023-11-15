@@ -26,8 +26,8 @@ exports.getCertainProduct = async (req, res, next) => {
 
 exports.addProduct = async (req, res, next) => {
     try {
-        const products = await db.query("INSERT INTO items (name, quantity, description, price, location, images) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *", 
-            [req.body.name, req.body.quantity, req.body.description, req.body.price, req.body.location, req.body.images]);
+        const products = await db.query("INSERT INTO items (name, quantity, description, price, location, img_public_id, img_url) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *", 
+            [req.body.name, req.body.quantity, req.body.description, req.body.price, req.body.location, req.body.img_public_id, req.body.img_url]);
         res.json({success: true, message: "Product Added Sucessfully", data: products.rows[0]});
     } catch (err) {
         return next(err);

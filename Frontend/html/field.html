@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+body, html {
+  margin: 0; 
+  padding: 0;
+  height: 81.6%;
+}
+
+.about-us {
+  background: #2E7D32; /* Greenish background color */
+  color: #ffffff; /* Text color */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fade 20s infinite;
+  text-align: center;
+}
+
+.content {
+  max-width: 90%;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  margin: 0;
+}
+
+p {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+@keyframes fade {
+  0%, 100% {
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 16px;
+    margin-top: 15px;
+  }
+}
+/* Common styles */
+.navigation {
+    text-align: center;
+    background-color: #1b701b;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+.im{
+  display: flex;
+  margin-right: 40%;
+}
+.navigation ul :hover{
+    color: #55caf8;
+}
+.navigation a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+#i{
+    margin-right: 30px;
+}
+
+#d{
+    margin-right: 30px;
+}
+
+#e{
+    margin-right: 30px;
+}
+
+#a{
+    margin-right: 30px;
+}
+
+#s{
+    margin-right: 30px;
+}
+#im{
+  margin-right: 30px;
+}
+
+/* Navigation responsiveness */
+@media (max-width: 768px) {
+    .navigation {
+        padding: 20px 0;
+    }
+
+    .navigation ul {
+        flex-direction: column;
+    }
+}
+
+/* Table styles */
+#productTable {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#productTable th, #productTable td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+#productTable th {
+    background-color: #1b701b;
+    color: #fff;
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 0px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1b701b;
+    min-width: 160px;
+    z-index: 1;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #052501;
+}
+
+
+  </style>
+  <div class="navigation">
+  <a id="im" href="/front/index.html"><img class="im" style="height: 70px; width: 50px; position: relative;" src="/front/images/mmh logo.png" alt=""></a>
+    <ul>
+      <li class="dropdown">
+            <a id="i" href="/front/index.html"><b>HOME</b></a>
+            <div class="dropdown-content">
+                <a href="#home">Dashboard</a>
+                
+                <a href="/Frontend/htmls/product.html">Our Products</a>
+                <a href="#profile">My Profile</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a id="d" href="/Frontend/htmls/about.html"><b>ABOUT</b></a>
+            <div class="dropdown-content">
+                <a href="/Frontend/htmls/about.html">About Us</a>
+                <a href="/Frontend/htmls/team.html">Our Team</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a id="e" href="#"><b>MORE QUESTIONS</b></a>
+            <div class="dropdown-content">
+                <a href="/Frontend/htmls/faq.html">FAQ</a>
+                <a href="/Frontend/htmls/get.html">Get Help</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a id="a" href="/Frontend/htmls/mission.html"><b>OUR MISSION</b></a>
+            <div class="dropdown-content">
+                <a href="/Frontend/htmls/mission.html">Our Mission</a>
+                <a href="/Frontend/htmls/goals.html">Our Goals</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a id="s" href="/Frontend/htmls/vision.html"><b>OUR VISION</b></a>
+            <div class="dropdown-content">
+                <a href="/Frontend/htmls/vision.html">Our Vision</a>
+                <a href="/Frontend/htmls/future.html">Our Future</a>
+            </div>
+        </li>
+    </ul>
+</div>
+</head>
+</head>
+<body>
+  <div class="about-us">
+    <div class="content">
+      <b><h1>Our Field of Operation</h1></b>
+      <p>
+        MeetMyHarvest operates at the dynamic intersection of agriculture, technology, and commerce. Our platform brings together farmers and buyers, creating a digital marketplace that simplifies the exchange of agricultural products. In this ever-evolving landscape, we play a crucial role in fostering a more connected and sustainable agricultural community.
+        <br>
+        <b>Agriculture: </b> We are deeply rooted in the world of agriculture, working with farmers of all kinds, from small-scale local growers to large-scale producers. Our commitment to supporting ethical farming practices and sustainability is at the heart of our operation.
+        <br>
+        <b>Technology:</b> We harness the power of technology to make agricultural transactions more efficient and accessible. Our innovative platform enables farmers to showcase their products and connect with buyers, streamlining the process and promoting transparency.
+        <br>
+        <b>Commerce:</b> MeetMyHarvest serves as the bridge between those who cultivate the land and those who seek fresh, high-quality agricultural products. We facilitate trade, empower farmers, and provide buyers with direct access to the source of their food.
+        <br>
+        In this exciting and ever-changing field, we're dedicated to empowering farmers, supporting responsible farming practices, and enhancing the livelihoods of agricultural communities. Our commitment to transparency, sustainability, and technology keeps us at the forefront of the agricultural industry. Join us in reimagining the future of agriculture and fostering a more connected, responsible, and prosperous farming community.</p>
+    </div>
+  </div>
+  <img style=" width: 100%; background-color: #2E7D32;" src="/meet.png" alt="">
+</body>
+</html>

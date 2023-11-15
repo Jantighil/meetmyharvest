@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeetMyHarvest Register page</title>
+    <link rel="stylesheet" href="/Frontend/assets/css/register.css">
+    <link
+      rel="shortcut icon"
+      href="/Frontend/assets/images/logo.png"
+      type="image/x-icon"
+    />
+</head>
+<body>
+  <div id="loadingPage">
+    <h1 class="brand">MeetMyHarvest</h1>
+    <img src="/Frontend/assets/images/loading.gif" alt=""></div>
+<div id="content">
+
+    <section class="login-section">
+        <h1 class="brand">MeetMyHarvest</h1>
+        <div class="logincontainer">
+            <div class="loginimg">
+                <img src="/Frontend/assets/images/about1.png" alt="">
+            </div>
+
+            <div class="loginform">
+              <form id="form">
+                <p id="error"></p>
+                <h2>Sign Up!</h2>
+                <div class="form">
+                    <label>Username</label>
+                    <div id="row">
+                        <input onblur="changeBorderColor()" type="text" id="textField" placeholder="Enter your Username" required/>
+                    </div>
+                    <p id="username"></p>
+
+                    <label>Email</label>
+                    <div id="row">
+                        <input onblur="changeBorderColor()" type="email" id="emailField" placeholder="*****@example.com" required/>
+                    </div>
+                    <p id="email"></p>
+
+                    <div class="radios">
+                      <label for="Farmer" class="radio"><input type="radio" name="user" class="user" value="Farmer" required> Farmer</label>
+                      <label for="Farmer" class="radio"><input type="radio" name="user" class="user" value="Buyer" required> Buyer</label> <br>
+                    </div>
+
+                    <label>Password</label>
+                    <div id="row">
+                        <input onblur="changeBorderColor()" type="password" id="password_input" placeholder="Type a Password" required/>
+                    </div>
+                    <p id="password"></p>
+                    
+
+                    <label>Mobile</label>
+                    <div id="row">
+                        <input onblur="changeBorderColor()" type="text" id="mobile_no_input" placeholder="Enter your mobile number" required/>
+                    </div>
+                    <p id="confirm-password"></p>
+
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox_input" required/> <p class="terms_cond"> I Agree to the <span><a href="">Terms & Conditions!</a></span></p>
+                    </div>
+                    <p id="checkbox"></p>
+
+                    <div class="btncontainer">
+                        <button type="submit" id="btn" onclick="event.preventDefault(); submitForm();">Submit</button>
+                        <p class="redirect">Already have an account? <a id="login" href="/Frontend/htmls/login.html">Login</a></p>
+                    </div>
+                </div>
+
+            </form>
+            </div>
+
+
+            <script>
+                const username = localStorage.getItem("username");
+                const token = localStorage.getItem("token");
+                if(token) {
+                    window.location = "/Frontend/htmls/login.html"
+                }
+                
+                
+            </script>
+
+            <script src="/Frontend/assets/js/register.js"></script>
+</body>
+</html>

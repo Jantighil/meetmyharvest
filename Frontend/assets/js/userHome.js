@@ -2,12 +2,12 @@ const baseUrl = 'http://localhost:8000'
 
 async function submitProducts() {
     const search = document.getElementById("search").value;
-    const name = document.getElementById("productName").value;
-    const quantity = document.getElementById("quantity").value;
-    const description = document.getElementById("description").value;
-    const price = document.getElementById("price").value;
-    const location = document.getElementById("location").value;
-    const images = document.getElementById("images");
+    var name = document.getElementById("productName").value;
+    var quantity = document.getElementById("quantity").value;
+    var description = document.getElementById("description").value;
+    var price = document.getElementById("price").value;
+    var location = document.getElementById("location").value;
+    var images = document.getElementById("images");
     const errorMessage = document.getElementById("error");
 
 
@@ -16,6 +16,30 @@ async function submitProducts() {
         errorMessage.classList.add('error');
         return;
     }
+
+
+    const baseurl = `${baseUrl}/uploadimg/profile`
+
+    const addimage = async () => {
+    const fileinput = document.getElementById("image-upload");
+        console.log(fileinput.files.length);
+        if (fileinput.files.length === 0) {
+            errorMessage.innerHTML = 'Please choose an image!';
+            errorMessage.classList.add('error');
+            return;
+        } else {
+            fetch(baseurl, {
+                method: 'POST',
+                body: formData,
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+        }
+    }
+    addimage();
+
 
     await fetch(baseUrl+'/items', {
         method: 'POST',
@@ -26,15 +50,20 @@ async function submitProducts() {
     })
     .then(response => response.json())
     .then(data => {
-        // console.log(data);
         if (data.success == true) {
             errorMessage.innerHTML = 'Product Added Successfully!';
             errorMessage.classList.add('valid');
+           
         } else {
             errorMessage.innerHTML = 'Something went wrong. Please try again.';
             errorMessage.classList.add('error');
         }
     })
+    name = '';
+    quantity = '';
+    description = '';
+    price = '';
+    location = '';
 }
 
 async function searchProducts() {

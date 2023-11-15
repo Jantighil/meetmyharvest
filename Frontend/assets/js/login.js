@@ -23,30 +23,37 @@ async function submitForm() {
     })
     .then(response => response.json())
     .then(data => {
-        // console.log(data);
+        console.log(data);
         if (data.match == true) {
-            errorMessage.innerHTML = 'Login successful!';
-            errorMessage.classList.add('valid');
-            
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("username", data.data[0].username);
+            if (data.data[0].status === 0) {
+                errorMessage.innerHTML = 'Login successful!';
+                errorMessage.classList.add('valid');
 
-            setTimeout(function() {
-                var loadingPage = document.getElementById('loadingPage');
-                var content = document.getElementById('content');
-                loadingPage.style.display = 'block';
-                content.style.display = 'none';                  
-            }, 3000);
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("username", data.data[0].username);
 
-            setTimeout(function() {
-                if (data.data[0].user_type == 'Buyer') {
-                    window.location = "http://127.0.0.1:5501/Frontend/htmls/buyerUser.html";
-                } else if(data.data[0].user_type == 'Farmer') {
-                    window.location = "http://127.0.0.1:5501/Frontend/htmls/farmerUser.html";
-                } else {
-                    window.location = "http://127.0.0.1:5501/Frontend/htmls/buyerUser.html";
-                }
-              }, 7000);
+                setTimeout(function() {
+                    var loadingPage = document.getElementById('loadingPage');
+                    var content = document.getElementById('content');
+                    loadingPage.style.display = 'block';
+                    content.style.display = 'none';                  
+                }, 3000);
+    
+                setTimeout(function() {
+                    if (data.data[0].user_type == 'Buyer') {
+                        window.location = "http://127.0.0.1:5501/Frontend/htmls/buyerUser.html";
+                    } else if(data.data[0].user_type == 'Farmer') {
+                        window.location = "http://127.0.0.1:5501/Frontend/htmls/farmerUser.html";
+                    } 
+                    else {
+                        window.location = "http://127.0.0.1:5501/Frontend/htmls/buyerUser.html";
+                    }
+                  }, 7000);
+            } else {
+                errorMessage.innerHTML = 'Login failed. Please check your credentials.';
+                errorMessage.classList.add('error1');
+            }
+    
         } else {
             errorMessage.innerHTML = 'Login failed. Please check your credentials.';
             errorMessage.classList.add('error1');

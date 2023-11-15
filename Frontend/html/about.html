@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+body, html {
+  margin: 0; 
+  padding: 0;
+  height: 81.6%;
+}
+
+.about-us {
+  background: #2E7D32; /* Greenish background color */
+  color: #ffffff; /* Text color */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fade 20s infinite;
+  text-align: center;
+}
+
+.content {
+  max-width: 90%;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  margin: 0;
+}
+
+p {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+@keyframes fade {
+  0%, 100% {
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 16px;
+    margin-top: 15px;
+  }
+}
+/* Common styles */
+.navigation {
+    text-align: center;
+    background-color: #1b701b;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+.im{
+  display: flex;
+  margin-right: 40%;
+}
+.navigation ul :hover{
+    color: #55caf8;
+}
+.navigation a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+#i{
+    margin-right: 30px;
+}
+
+#d{
+    margin-right: 30px;
+}
+
+#e{
+    margin-right: 30px;
+}
+
+#a{
+    margin-right: 30px;
+}
+
+#s{
+    margin-right: 30px;
+}
+#im{
+  margin-right: 30px;
+}
+
+/* Navigation responsiveness */
+@media (max-width: 768px) {
+    .navigation {
+        padding: 20px 0;
+    }
+
+    .navigation ul {
+        flex-direction: column;
+    }
+}
+
+/* Table styles */
+#productTable {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#productTable th, #productTable td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+#productTable th {
+    background-color: #1b701b;
+    color: #fff;
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 0px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1b701b;
+    min-width: 160px;
+    z-index: 1;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #052501;
+}
+
+
+  </style>
+  <div class="navigation">
+  <a id="im" href="/front/index.html"><img class="im" style="height: 70px; width: 50px; position: relative;" src="/front/images/logo_noBG.png" alt=""></a>
+    <ul>
+      <li class="dropdown">
+            <a id="i" href="/front/index.html"><b>HOME</b></a>
+            <div class="dropdown-content">
+                <a href="/Frontend/htmls/buyerUser.html">Dashboard</a>
+                <a href="/Frontend/html/product.html">Our Products</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a id="d" href="/Frontend/html/about.html"><b>ABOUT</b></a>
+            <div class="dropdown-content">
+                <a href="/Frontend/html/about.html">About Us</a>
+                <a href="/Frontend/html/team.html">Our Team</a>
+            </div
+        </li>
+        <li class="dropdown">
+            <a id="e" href="#"><b>MORE QUESTIONS</b></a>
+            <div class="dropdown-content">
+                <a href="/Frontend/html/faq.html">FAQ</a>
+                <a href="/Frontend/html/get.html">Get Help</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a id="a" href="/Frontend/html/mission.html"><b>OUR MISSION</b></a>
+            <div class="dropdown-content">
+                <a href="/Frontend/html/mission.html">Our Mission</a>
+                <a href="/Frontend/html/goals.html">Our Goals</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a id="s" href="/Frontend/html/vision.html"><b>OUR VISION</b></a>
+            <div class="dropdown-content">
+                <a href="/Frontend/html/vision.html">Our Vision</a>
+                <a href="/Frontend/html/future.html">Our Future</a>
+            </div>
+        </li>
+    </ul>
+</div>
+</head>
+</head>
+<body>
+  <div class="about-us">
+    <div class="content">
+      <h1>About Us</h1>
+      <p>MeetMyHarvest is a pioneering platform that bridges the gap between farmers and bulk buyers, revolutionizing the agricultural market. 
+        <br>Our mission is to empower buyers to access fresh and quality agricultural products with ease. <br> Through our user-friendly interface, we facilitate seamless transactions, enabling buyers to purchase in bulk and connect directly with farmers. <br> With MeetMyHarvest, you gain access to a wide range of agricultural offerings, making procurement simple and efficient. <br> We prioritize transparency, offering comprehensive product details and fair pricing. <br> Our commitment to sustainability ensures that you support responsible farming practices. <br> Join us today, and experience a new era of agricultural commerce.</p>
+    </div>
+  </div>
+  <img style=" width: 100%; background-color: #2E7D32;" src="/meet.png" alt="">
+</body>
+</html>

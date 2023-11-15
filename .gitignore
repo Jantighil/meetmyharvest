@@ -1,5 +1,7 @@
 node_modules
 .env
 README.md
+README1.md
 package-lock.json
 front
+help.html

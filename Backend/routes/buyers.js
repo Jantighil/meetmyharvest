@@ -11,7 +11,8 @@ router.get("/", getBuyers)
 router.get("/:buyerName", getOneBuyer)
 
 //  POST/ADD A BUYERS
-router.post("/", postBuyers)
+// router.post("/", postBuyers)
+router.post("/:username", postBuyers)
 
 //  PATCH/UPDATE A PARTICULAR BUYER BY NAME
 router.patch("/:buyerName", patchBuyer)

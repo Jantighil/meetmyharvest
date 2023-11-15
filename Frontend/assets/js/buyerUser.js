@@ -13,7 +13,7 @@ const MobNumerror = document.querySelector('#mobileNo-error');
 const oldpassword = document.getElementById('oldpassword');
 const newpassword = document.getElementById('newpassword');
 const confNewPassword = document.getElementById('confirmnewpassword');
-const Pageerror = document.querySelector('#password_page_error');
+const ChangePasswordPageerror = document.querySelector('#password_page_error');
 const OldPassworderror = document.querySelector('#oldpassworderror');      
 const NewPassworderror = document.querySelector('#newpassworderror');      
 const ConfirmNewPassworderror = document.querySelector('#confirmnewpassworderror'); 
@@ -172,4 +172,13 @@ function toggleContent(elementId) {
         elements[i].style.borderLeft = i + 1 === elementId ? '2px solid #5E5E0B' : 'none';
     }
 }
+
+
+const dataFromServer = "John Doe";
+
+firstname.value = 'Fortune';
+lastname.value = 'Ifeanyi';
+email.value = 'fortune@gmail.com';
+locaton.value = 'kaduna'
+mobile_no.value = '09043652728';
 

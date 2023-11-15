@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARVESTSHQ PRODUCTS</title>
+    <link rel="stylesheet" href="/Frontend/assets/css/products.css">
+</head>
+<body onload="displayProducts();">
+    <div class="wholepage">
+        <nav class="navbar">
+            <div class="nav_link">
+                <div class="nav_img">
+                    <img onclick="window.location = '/front/index.html'" src="/front/images/logo_noBG.png" alt="">
+                </div>
+                <div class="nav_links">
+                    <ul class="nav_links_list">
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/htmls/buyerUser.html'">DASHBOARD</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/html/about.html'">ABOUT</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/html/faq.html'">FAQs</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/html/mission.html'">MISSION</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/html/get.html'">CONTACT</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav_btns">
+                <div class="search_login_reg_btn">
+                    <!-- <div class="search_btn_container">
+                        <input id="search" type="search" class="search_btn" placeholder="Search products" >
+                        <a href=""><img class="search_icon" src="/Frontend/assets/images/icons/search2.png" alt="searh icon"></a>
+                    </div> -->
+                    <div class="login_reg_btn">
+                        <div class="userMessage">
+                            <p>Hello, <br> <span id="username">fortune</span></p>
+                        </div>
+                        <div class="cart_img">
+                            <a href="/Frontend/htmls/buyerUser.html"><img src="/Frontend/assets/images/icon/cartBGC1.png" alt="cart basket"></a><div class="cart_number">2</div>
+                        </div>
+                        <div>
+                            <input id="logout" class="nav_logout_btn" type="submit" onclick="logout();" value="Logout">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="products_container">
+            <div class="inner_products_container">
+                <div class="search_input">
+                    <img src="/Frontend/assets/images/icon/search-alt-svgrepo-com.png" alt="">
+                    <div class="line"></div>
+                    <input id="search" class="item_search" type="search" placeholder="Search..." oninput="searchProducts();">
+                    <!-- <input id="search" class="item_search" type="search" placeholder="Search..." onchange="searchProducts();"> -->
+                </div>
+                <div class="filter_buttons">
+                    <button id="btnfill1" value="rice" class="filter_btn selected" type="button" onclick="filterProducts(1);">Rice(<span>64</span>)</button>
+                    <button id="btnfill2" value="tomatoes" class="filter_btn" type="button" onclick="filterProducts(2);">Tomatoes(<span>53</span>)</button>
+                    <button id="btnfill3" value="ginger" class="filter_btn" type="button" onclick="filterProducts(3);">Ginger(<span>50</span>)</button>
+                    <button id="btnfill4" value="onions" class="filter_btn" type="button" onclick="filterProducts(4);">Onions(<span>25</span>)</button>
+                    <button id="btnfill5" value="yam" class="filter_btn" type="button" onclick="filterProducts(5);">Yam(<span>15</span>)</button>
+                </div>
+
+                <!-- <div id="searchItems">
+                    <p id="prod_name"></p>
+                    <p id="prod_desc"></p>
+                    <p id="prod_quantity"></p>
+                    <p id="prod_price"></p>
+                    <p id="prod_location"></p>
+                </div>
+                <div id="doubleItems"></div>
+                <div id="allItems"></div> -->
+
+                <div id="product_items_container" class="product_items_container">
+                    
+                </div>
+                <div id="product_items_container_search" class="product_items_container">
+                    
+                </div>
+                <div id="product_items_container_fill" class="product_items_container">
+                    
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        const username = localStorage.getItem("username");
+        document.getElementById("username").innerHTML = `${username.replace(username[0], username[0].toUpperCase())}`;
+
+        function logout() {
+            localStorage.removeItem('username')
+            localStorage.removeItem('token')
+            window.location = "/Front/index.html"
+        }
+        document.getElementById("logout").addEventListener("click", logout);
+    </script>
+    <script src="/Frontend/assets/js/products.js"></script>
+</body>
+</html>

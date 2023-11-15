@@ -20,11 +20,11 @@
                 </div>
                 <div class="nav_links">
                     <ul class="nav_links_list">
-                        <li class="nav_links_list_item">OUR MISSION</li>
-                        <li class="nav_links_list_item">ABOUT</li>
-                        <li class="nav_links_list_item">FAQs</li>
-                        <li class="nav_links_list_item">PRODUCTS</li>
-                        <li class="nav_links_list_item">CONTACT</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/html/mission.html'">MISSION</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/html/about.html'">ABOUT</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/html/faq.html'">FAQs</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/htmls/products.html'">PRODUCTS</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/html/get.html'">CONTACT</li>
                     </ul>
                 </div>
             </div>
@@ -32,14 +32,14 @@
                 <div class="search_login_reg_btn">
                     <div class="search_btn_container">
                         <input id="search" type="search" class="search_btn" placeholder="Search products" >
-                        <a href=""><img class="search_icon" src="/Frontend/assets/images/icons/search3.png" alt="searh icon"></a>
+                        <a href="/Frontend/htmls/products.html"><img class="search_icon" src="/Frontend/assets/images/icons/search1.png" alt="searh icon"></a>
                     </div>
                     <div class="login_reg_btn">
                         <div class="userMessage">
                             <p>Hello, <br> <span  id="username">fortune</span></p>
                         </div>
                         <div class="cart_img">
-                            <a href=""><img src="/Frontend/assets/images/icons/cart3.png" alt="cart basket"></a><div class="cart_number">2</div>
+                            <a href=""><img src="/Frontend/assets/images/icon/cartBGC1.png" alt="cart basket"></a><div class="cart_number">2</div>
                         </div>
                         <div>
                             <input id="logout" class="nav_logout_btn" type="submit" onclick="logout();" value="Logout">
@@ -53,34 +53,38 @@
             <div class="dashboard_container">
                 <div class="dashboard_navs">
                     <div class="dashboard_text_img">
-                        <img class="dashboard_img" src="/Frontend/assets/images/icons/dashboard2.png" alt="">
+                        <img class="dashboard_img" src="/Frontend/assets/images/icon/dashboardBGC.png" alt="">
                         <h4 class="dashboard_text">Dashboard</h4>
                     </div>
                     <div class="dashboard_navs_links_container">
                         <div id="" class="dashboard_navs_links" >
                             <div id="" class="dashboard_navs_links_list">
                                 <div id="navlink1" class="dashboard_nav_links_img_text1">
-                                    <img class="dashboard_navs_links_img1" src="/Frontend/assets/images/icons/profile1.png" alt="">
+                                    <img class="dashboard_navs_links_img1" src="/Frontend/assets/images/icon/profileBGC.png" alt="">
                                     <h4 id="text1"  class="dashboard_navs_links_item" onclick="toggleContent(1)">My Profile</h4>
                                 </div>
                                 <div id="navlink2" class="dashboard_nav_links_img_text">
-                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icons/password2.png" alt="">
+                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/passwordBGC.png" alt="">
                                     <h4 id="text2"  class="dashboard_navs_links_item" onclick="toggleContent(2)">Change Password</h4>
                                 </div>
                                 <div id="navlink3" class="dashboard_nav_links_img_text">
-                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icons/cart2.png" alt="">
+                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/cartBGC.png" alt="">
                                     <h4 id="text3"  class="dashboard_navs_links_item" onclick="toggleContent(3)">Cart</h4>
                                 </div>
+                                <!-- <div id="navlink6" class="dashboard_nav_links_img_text">
+                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/bagBGC.png" alt="">
+                                    <h4 id="text6"  class="dashboard_navs_links_item" onclick="toggleContent(6)">Farmers</h4>
+                                </div> -->
                                 <div id="navlink4" class="dashboard_nav_links_img_text">
-                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icons/bag2.png" alt="">
-                                    <h4 id="text4"  class="dashboard_navs_links_item" onclick="toggleContent(4)">Bought Items</h4>
+                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/bagBGC.png" alt="">
+                                    <h4 id="text4"  class="dashboard_navs_links_item" onclick="toggleContent(4)">Purchased Items</h4>
                                 </div>
                                 <div id="navlink5" class="dashboard_nav_links_img_text">
-                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icons/settings.png" alt="">
-                                    <h4 id="text5"  class="dashboard_navs_links_item" onclick="toggleContent(5)">Settings</h4>
+                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/chatBGC.png" alt="">
+                                    <h4 id="text5"  class="dashboard_navs_links_item" onclick="toggleContent(5)">Chat</h4>
                                 </div>
                                 <div class="dashboard_nav_links_img_text">
-                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icons/logout.png" alt="">
+                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/logoutBGC.png" alt="">
                                     <h4 id="" class="dashboard_navs_links_item" onclick="logout();">Log Out</h4>
                                 </div>
                             </div>
@@ -104,20 +108,20 @@
                             </div>
                             <div class="profile_fast_links">
                                 <div class="link_img">
-                                    <img src="/Frontend/assets/images/icons/profile2.png" alt="">
+                                    <img src="/Frontend/assets/images/icon/profileBGC.png" alt="">
                                     <a href="">My Profile</a>
                                 </div>
                                 <div class="link_img">
-                                    <img src="/Frontend/assets/images/icons/password2.png" alt="">
-                                    <a href="">Update Password</a>
+                                    <img src="/Frontend/assets/images/icon/passwordBGC.png" alt="">
+                                    <a>Update Password</a>
                                 </div>
                                 <div class="link_img">
-                                    <img src="/Frontend/assets/images/icons/cart6.png" alt="">
-                                    <a href="">Orders</a>
+                                    <img src="/Frontend/assets/images/icon/cartBGC.png" alt="">
+                                    <a>Orders</a>
                                 </div>
                                 <div class="link_img">
-                                    <img src="/Frontend/assets/images/icons/payment.png" alt="">
-                                    <a href="">Personal Payment Methods</a>
+                                    <img src="/Frontend/assets/images/icon/paymentBGC.png" alt="">
+                                    <a>Personal Payment Methods</a>
                                 </div>
                             </div>
                         </div>
@@ -128,16 +132,19 @@
                             <h1>My Profile</h1>
                         </div>
                         <div>
-                            <p id="profile_page_error" class="page_error">dwed</p>
+                            <p id="profile_page_error" class="page_error"></p>
                         </div>
                         <div id="errorMessage"></div>
-                        <div id="" class="img_add_del">
-                            <img src="/Frontend/assets/images/icons/avatar1.jpg" alt="">
-                            <div id="" class="add_del_btns">
-                                <input id="" class="upload" type="button" value="Upload new picture">
-                                <input id="" class="delete" type="submit" value="Delete">
+                        <!-- <form action="http://localhost:8000/uploadimg/profile" method="post" enctype="multipart/form-data"> -->
+                            <div id="" class="img_add_del">
+                                <!-- <input type="file" name="avatar" id="file"> -->
+                                <img src="/Frontend/assets/images/icons/avatar1.jpg" alt="">
+                                <div id="" class="add_del_btns">
+                                    <input id="" class="upload" type="button" onclick="addimage();" value="Upload new picture">
+                                    <input id="" class="delete" type="submit" value="Delete">
+                                </div>
                             </div>
-                        </div>
+                        <!-- </form> -->
                         <div id="" class="input_details">
                             <div class="names">
                                 <label id="" class="labels" for="firstname">Firstname <br>  
@@ -154,15 +161,15 @@
                             </label>
                             <p id="email-error" class="error"></p>
                             <label id="" class="labels" for="location">Location <br> 
-                                <select id="location" placeholder="dx" class="inputtext" name="states" style="width: 850px;">
+                                <!-- <select id="location" placeholder="dx" class="inputtext" name="states" style="width: 850px;">
                                     <option value="" disabled selected>Select your location</option>
                                     <option value="apple">Abia</option>
                                     <option value="banana">Adamawa</option>
                                     <option value="orange">Akwaibom</option>
                                     <option value="strawberry">Anambra</option>
                                     <option value="strawberry">Bauchi</option>
-                                </select>
-                                <!-- <input class="inputtext" type="text" name="location" id="location" placeholder="Location"> -->
+                                </select> -->
+                                <input class="inputtext" type="text" name="location" id="location" placeholder="Location">
                             </label>
                             <p id="location-error" class="error"></p>
                             <label id="" class="labels" for="mobile_no" >Mobile <br> 
@@ -171,7 +178,7 @@
                             </label>
                             <p id="mobileNo-error" class="error"></p>
                             <div id="" class="save_btn">
-                                <input class="savebtn" id="save_btn" type="button" value="Save Changes">
+                                <input class="savebtn" id="save_btn" type="button" value="Save Changes" onclick="updateProfile();">
                             </div>
                         </div>
                     </div>
@@ -181,7 +188,7 @@
                             <h2>Change Password</h2>
                         </div>
                         <div>
-                            <p id="password_page_error" class="page_error">dwed</p>
+                            <p id="password_page_error" class="page_error"></p>
                         </div>
                         <div>
                             <label class="labels" for="oldpassword">Old Password <br> 
@@ -204,9 +211,90 @@
                     </div>
 
 
-                    <div id="content3" class="next">
-                        <div class="heading">
+                    <div id="content3" class="cart">
+                        <div id="cart" class="heading">
                             <h2>Cart</h2>
+                        </div>
+
+                        <div class="maincartcontainer">
+                            <div class="cartcontainer">
+                                <div class="cart_writeup">
+                                    <h4>Cart - <span>3</span> items</h4>
+                                </div>
+                                <div class="items">
+                                    <div class="cart_item">
+                                        <div class="cart_item_img">
+                                            <img src="/Frontend/assets/images/product_img2.jpg" alt="">
+                                        </div>
+                                        <div class="product_details">
+                                            <h3 class="product_name">Mangoes</h3>
+                                            <p>Quantity: <span>2 basket</span></p>
+                                            <p>Farmer: <span>Jonathan</span></p>
+                                            <p>Price: <span>₦50,000</span></p>
+                                            <div class="react_btns">
+                                                <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                                <button class="deleteCartitem"><img src="/Frontend/assets/images/icons/delete1.png" alt=""></button>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="react_btns">
+                                            <button class=""><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                            <button class=""><img src="/Frontend/assets/images/icons/delete1.png" alt=""></button>
+                                        </div> -->
+                                    </div>
+                                    
+                                    <div class="cart_item">
+                                        <div class="cart_item_img">
+                                            <img src="/Frontend/assets/images/offer2.png" alt="">
+                                        </div>
+                                        <div class="product_details">
+                                            <h3 class="product_name">Pepper</h3>
+                                            <p>Quantity: <span>5 basket</span></p>
+                                            <p>Farmer: <span>Felicia</span></p>
+                                            <p>Price: <span>₦10,000</span></p>
+                                            <div class="react_btns">
+                                                <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                                <button class="deleteCartitem"><img src="/Frontend/assets/images/icons/delete1.png" alt=""></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cart_item">
+                                        <div class="cart_item_img">
+                                            <img src="/Frontend/assets/images/offer1.png" alt="">
+                                        </div>
+                                        <div class="product_details">
+                                            <h3 class="product_name">Rice</h3>
+                                            <p>Quantity: <span>10 bags</span></p>
+                                            <p>Farmer: <span>Felix</span></p>
+                                            <p>Price: <span>₦500,000</span></p>
+                                            <div class="react_btns">
+                                                <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                                                <button class="deleteCartitem"><img src="/Frontend/assets/images/icons/delete1.png" alt=""></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="summary">
+                                <div class="cart_writeup">
+                                    <h4>Summary</h4>
+                                </div>
+                                <div class="products_levy">
+                                    <p>Products</p>
+                                    <p>₦5,000</p>
+                                    <p>Levy</p>
+                                    <p></p>
+                                </div>
+                                <div class="total">
+                                    <p>Total amount</p>
+                                    <p>(Including VAT)</p>
+                                    <p>₦5,000</p>
+                                    <div class="checkout_container">
+                                        <input class="checkout" type="button" value="GO TO CHECKOUT">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -220,7 +308,7 @@
 
                     <div id="content5" class="next">
                         <div class="heading">
-                            <h2>Settings</h2>
+                            <h2>Chat</h2>
                         </div>
                     </div>
 
@@ -232,6 +320,19 @@
 
 
     <script>
+        const baseurl = `http://localhost:8000/uploadimg/profile`
+
+        const addimage = async () => {
+            fetch(baseurl, {
+                method: 'POST',
+                body: formData,
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+        }
+
         const username = localStorage.getItem("username");
         const token = localStorage.getItem("token");
 
@@ -264,7 +365,7 @@
         function logout() {
             localStorage.removeItem('username')
             localStorage.removeItem('token')
-            window.location = "/Frontend/htmls/login.html"
+            window.location = "/Front/index.html"
         }
         document.getElementById("logout").addEventListener("click", logout);
 

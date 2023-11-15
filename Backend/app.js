@@ -7,6 +7,7 @@ const farmersRoutes = require("./routes/farmers");
 const buyersRoutes = require("./routes/buyers");
 const registrationsRoutes = require("./routes/register");
 const loginRoutes = require("./routes/login");
+const helpers = require("./routes/helpers");
 // const adminsRoutes = require("./routes/administrator");
 
 app.use(express.json());
@@ -16,6 +17,7 @@ app.use("/farmers", cors(), farmersRoutes);
 app.use("/buyers", cors(), buyersRoutes);
 app.use("/auth", cors(), registrationsRoutes);
 app.use("/login", cors(), loginRoutes);
+app.use("/uploadimg", cors(), helpers);
 // app.use("/admin", cors(), adminsRoutes);
 app.use(cors());
 

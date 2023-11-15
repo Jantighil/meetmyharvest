@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { addUser, deleteUser } = require("../controllers/auth/register")
+const { getUser, addUser, deleteUser } = require("../controllers/auth/register")
+
+router.get("/users/:username", getUser);
 
 router.post("/register", addUser);
 
