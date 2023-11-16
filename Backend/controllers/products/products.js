@@ -1,4 +1,5 @@
 const db = require("../../db");
+const {upload, cloudinary} = require("../imgsUpload/helpers");
 
 exports.getAllProducts = async (req, res, next) => {
     try {
@@ -26,9 +27,16 @@ exports.getCertainProduct = async (req, res, next) => {
 
 exports.addProduct = async (req, res, next) => {
     try {
+        const img = req.file;
+        try {
+            var result = await cloudinary.uploader.upload(`${img.path}`, {folder: "meetmyharvest"})
+            console.log({message: "image uploaded successfully!"}); 
+          } catch (error) {
+            return error;
+          }
         const products = await db.query("INSERT INTO items (name, quantity, description, price, location, img_public_id, img_url) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *", 
-            [req.body.name, req.body.quantity, req.body.description, req.body.price, req.body.location, req.body.img_public_id, req.body.img_url]);
-        res.json({success: true, message: "Product Added Sucessfully", data: products.rows[0]});
+            [req.body.name, req.body.quantity, req.body.description, req.body.price, req.body.location, result.public_id, result.url]);
+        res.json({success: true, message: "Product Added Sucessfully", imgData: result, data: products.rows[0]});
     } catch (err) {
         return next(err);
     }

@@ -140,6 +140,15 @@
             font-size: 18px;
             font-weight: 500;
         }
+        .item_img {
+            width: 250px;
+            height: 200px;
+            border-radius: 20px;
+        }
+        .allitems {
+            display: grid;
+            grid-template-columns: auto auto auto;
+        }
 
         .circular-input {
             width: 250px;
@@ -182,41 +191,34 @@
             <button class="logout" id="logout">Logout</button>
         </div>
 
-        <form id="image-upload-form" action="http://localhost:8000/uploadimg/profile" method="post" enctype="multipart/form-data">
-        <div class="inputs">
-            <p id="error"></p>
-            <input type="search" placeholder="Search a product" id="search" class="inputFields"><input type="submit" class="search" value="Search" onclick="searchProducts();"><br><br>
-            <div id="searchItems">
-                <p id="prod_name"></p>
-                <p id="prod_desc"></p>
-                <p id="prod_quantity"></p>
-                <p id="prod_price"></p>
-                <p id="prod_location"></p>
-            </div>
-            <div id="doubleItems"></div>
-            <div id="allItems"></div>
+            <div class="inputs">
+                <p id="error"></p>
+                <input type="search" placeholder="Search a product" id="search" class="inputFields"><input type="submit" class="search" value="Search" onclick="searchProducts();"><br><br>
+                <div id="searchItems">
+                    <p id="prod_name"></p>
+                    <p id="prod_desc"></p>
+                    <p id="prod_quantity"></p>
+                    <p id="prod_price"></p>
+                    <p id="prod_location"></p>
+                </div>
+                <div id="doubleItems"></div>
+                <div id="allItems"></div>
+                
+                <form id="image-upload-form">
+                    <p class="titles">Add image: 
+                        <label for="image-upload" class="circular-input">
+                            <input type="file" id="image-upload" name="avatar" accept="image/*">
+                            <img class="circular-image" id="selected-image" src="/">
+                        </label>
+                    <p class="titles">Product Name: <input name="name" type="text" placeholder="Name of product" id="productName" class="inputFields"></p> <br>
+                    <p class="titles">Quantity: <input name="quantity" type="text" placeholder="Quantity" id="quantity" class="inputFields"></p> <br>
+                    <p class="titles">Description: <textarea name="description" rows="4" cols="50" placeholder="Write a description" id="description" class="inputFields"></textarea></p> <br>
+                    <p class="titles">Price: <input name="price" type="number" placeholder="Price (eg, 50000)" id="price" class="inputFields"></p> <br>
+                    <p class="titles">Location: <input name="location" type="text" placeholder="Location" id="location" class="inputFields"></p> <br>
 
-            <p class="titles">Product Name: <input type="text" placeholder="Name of product" id="productName" class="inputFields"></p> <br>
-            <p class="titles">Quantity: <input type="text" placeholder="Quantity" id="quantity" class="inputFields"></p> <br>
-            <p class="titles">Description: <textarea rows="4" cols="50" placeholder="Write a description" id="description" class="inputFields"></textarea></p> <br>
-            <p class="titles">Price: <input type="number" placeholder="Price (eg, 50000)" id="price" class="inputFields"></p> <br>
-            <p class="titles">Location: <input type="text" placeholder="Location" id="location" class="inputFields"></p> <br>
-
-            <p class="titles">Add image: 
-                <!-- <form id="image-upload-form" action="http://localhost:8000/uploadimg/profile" method="post" enctype="multipart/form-data"> -->
-                    <label for="image-upload" class="circular-input">
-                        <input type="file" id="image-upload" name="avatar" accept="image/*">
-                        <img class="circular-image" id="selected-image" src="/">
-                    </label>
                     <input class="btn" id="btn" type="submit" onclick="submitProducts();">
                 </form>
-                
-            <!-- <form action="http://localhost:8000/uploadimg/profile" method="post" enctype="multipart/form-data"> -->
-                <!-- <input type="submit" value="upload" onclick="addimage();"> -->
-                <!-- <input class="btn" id="btn" type="submit" onclick="submitProducts();"> -->
-            <!-- </form> -->
-            <!-- <input class="btn" id="btn" type="submit" onclick="addimage(); submitProducts();"> -->
-        </div>
+            </div>
     </div>
     
     <script>

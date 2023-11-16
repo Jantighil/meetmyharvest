@@ -120,6 +120,7 @@ input[type="search"]:focus {
     border: 2px solid #292902;
     margin-top: -37px;
     margin-left: 37px;
+    display: none;
 }
 .cart_img >a img {
     cursor: pointer;
@@ -225,13 +226,21 @@ input[type="search"]:focus {
 }
 .item_image > img {
     height: 100%;
+    width: 100%;
     border-radius: 20px;
 }
 .item_details {
     padding-left: 10px;
+    width: 200px;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: right;
 }
 .product_details {
     display: flex;
+    /* border: 1px solid red; */
+    width: 200px;
+
 }
 .item_info > p {
     padding: 5px 0px;
@@ -244,7 +253,6 @@ input[type="search"]:focus {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
-    margin-left: 15px;
 }
 .react_btns > button {
     width: 35px;

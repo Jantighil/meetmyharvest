@@ -1,11 +1,12 @@
 const db = require("../../db");
+const { confirmUser, trueLogin_logs, falseLogin_logs } = require("../../models/index");
 const bcrypt = require("bcrypt");
 const jsonwebtoken = require("jsonwebtoken");
 const SECRET = process.env.JWT_SECRET;
 
 exports.checkUserExists = async (req, res, next) => {
     try {
-        const user = await db.query("SELECT * FROM users WHERE username ILIKE $1", [req.body.username]);
+        const user = await db.query(confirmUser, [req.body.username]);
         let userPassword = user.rows[0].password;
         if (user.rows.length === 0) {
             return res.json({ message: "Invalid Username" });
@@ -14,11 +15,11 @@ exports.checkUserExists = async (req, res, next) => {
         
         // ADD LOGIN LOGS TO DATABASE
         if (comparePassword === true) {
-            var addLogs = await db.query("INSERT INTO login_logs (user_id, username, success) VALUES ($1, $2, $3) RETURNING *", 
+            var addLogs = await db.query(trueLogin_logs, 
                 [user.rows[0].user_id, user.rows[0].username, comparePassword]);
         }
         if (comparePassword === false) {
-            var getWrongPassword = await db.query("INSERT INTO login_logs (user_id, username, success, provided_password) VALUES ($1, $2, $3, $4) RETURNING *", 
+            var getWrongPassword = await db.query(falseLogin_logs, 
                 [user.rows[0].user_id, user.rows[0].username, comparePassword, req.body.password]);
             return res.json({ message: "Invalid Password" });
         }

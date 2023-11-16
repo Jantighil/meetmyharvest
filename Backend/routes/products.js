@@ -1,4 +1,5 @@
 const express = require("express");
+const helpers = require("../controllers/imgsUpload/helpers");
 const router = express.Router({ mergeParams: true});
 const { getAllProducts, getCertainProduct, addProduct, updateProduct, deleteProduct} = require("../controllers/products/products")
 
@@ -9,7 +10,8 @@ router.get("/", getAllProducts);
 router.get("/:productName", getCertainProduct)
 
 //  POST/ADD A PRODUCT
-router.post("/", addProduct)
+router.post("/", helpers.upload.single('avatar'), addProduct)
+// router.post("/", addProduct) REAL ONE
 
 //  PATCH/UPDATE A PARTICULAR PRODUCTT BY NAME
 router.patch("/:productName", updateProduct)

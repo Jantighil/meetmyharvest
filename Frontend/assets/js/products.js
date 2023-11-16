@@ -33,7 +33,6 @@ async function displayProducts() {
     .then(response => response.json())
     .then(item => {
         if (item.success == true) {
-            // console.log(item);
             if (product_items_container.style.display = 'grid') {
                 product_items_container.style.display = 'none';
             }
@@ -42,15 +41,14 @@ async function displayProducts() {
             product_items_container_search.style.display = 'none';
 
             for (let i = 0; i < item.data.length; i++) {
-                // product_items_container.style.display = 'grid';
                 const product_item = document.createElement("div");
                 product_item.classList.add('product_item');
                 
-                // var imgurl = item.data[i].img_url;
-                src = '/Frontend/assets/images/offer1.png'
+                var imgurl = item.data[i].img_url;
+                src = '/Frontend/assets/images/offer2.png'
                 product_item.innerHTML = `
                 <div class="item_image">
-                    <img src=${src} alt="">
+                    <img src=${imgurl || src} alt="">
                 </div>
                 <div class="item_details">
                     <div class="product_details">
@@ -58,24 +56,22 @@ async function displayProducts() {
                             <h3 class="product_name">${item.data[i].name.replace(item.data[i].name[0], item.data[i].name[0].toUpperCase())}</h3>
                             <p> <span>${item.data[i].quantity}</span></p>
                             <p> <span>${item.data[i].location.replace(item.data[i].location[0], item.data[i].location[0].toUpperCase())}</span></p>
-                            <p> <span>${item.data[i].price}</span></p>
-                        </div>
-                        <div class="react_btns">
-                            <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
-                            <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
-                        </div>
-                        <div class="item_description">
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                            <p> <span>₦${item.data[i].price}</span></p>
                         </div>
                     </div>
+                    <div class="react_btns">
+                        <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                        <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                    </div>
+                    <div class="item_description">
+                        <p>${item.data[i].description}</p>
+                    </div>
                 </div>`
-
                 product_items_container.appendChild(product_item);
-
             }
+        return;
         }
     })
-    return;
 }
 
 
@@ -94,6 +90,7 @@ async function searchProducts() {
     .then(response => response.json())
     .then(item => {
         if (item.success == true) {
+            product_items_container_search.style.display = 'none';
             product_items_container.style.display = 'none';
             product_items_container_fill.style.display = 'none';
             product_items_container_search.style.display = 'grid';
@@ -102,11 +99,11 @@ async function searchProducts() {
                 const product_item = document.createElement("div");
                 product_item.classList.add('product_item');
                 
-                // var imgurl = item.data[i].img_url;
-                src = '/Frontend/assets/images/offer2.png'
+                var imgurl = item.data[i].img_url;
+                // src = '/Frontend/assets/images/offer2.png'
                 product_item.innerHTML = `
                 <div class="item_image">
-                    <img src=${src} alt="">
+                    <img src=${imgurl} alt="">
                 </div>
                 <div class="item_details">
                     <div class="product_details">
@@ -114,19 +111,20 @@ async function searchProducts() {
                             <h3 class="product_name">${item.data[i].name.replace(item.data[i].name[0], item.data[i].name[0].toUpperCase())}</h3>
                             <p> <span>${item.data[i].quantity}</span></p>
                             <p> <span>${item.data[i].location.replace(item.data[i].location[0], item.data[i].location[0].toUpperCase())}</span></p>
-                            <p> <span>${item.data[i].price}</span></p>
+                            <p> <span>₦${item.data[i].price}</span></p>
                         </div>
                         <div class="react_btns">
                             <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
                             <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
                         </div>
                         <div class="item_description">
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
+                            <p>${item.data[i].description}</p>
                         </div>
                     </div>
                 </div>`
                 product_items_container_search.appendChild(product_item);
             }
+        return;
         }
     });
 }
@@ -147,19 +145,20 @@ async function filterProducts(id) {
     .then(response => response.json())
     .then(item => {
         if (item.success == true) {
+            product_items_container_fill.style.display = 'none';
             product_items_container.style.display = 'none';
-            product_items_container_fill.style.display = 'grid';
             product_items_container_search.style.display = 'none';
+            product_items_container_fill.style.display = 'grid';
 
             for (let i = 0; i < item.data.length; i++) {
                 const product_item = document.createElement("div");
                 product_item.classList.add('product_item');
                 
-                // var imgurl = item.data[i].img_url;
-                src = '/Frontend/assets/images/offer2.png'
+                var imgurl = item.data[i].img_url;
+                // src = '/Frontend/assets/images/offer2.png'
                 product_item.innerHTML = `
                 <div class="item_image">
-                    <img src=${src} alt="">
+                    <img src=${imgurl} alt="">
                 </div>
                 <div class="item_details">
                     <div class="product_details">
@@ -167,19 +166,19 @@ async function filterProducts(id) {
                             <h3 class="product_name">${item.data[i].name.replace(item.data[i].name[0], item.data[i].name[0].toUpperCase())}</h3>
                             <p> <span>${item.data[i].quantity}</span></p>
                             <p> <span>${item.data[i].location.replace(item.data[i].location[0], item.data[i].location[0].toUpperCase())}</span></p>
-                            <p> <span>${item.data[i].price}</span></p>
+                            <p> <span>₦${item.data[i].price}</span></p>
                         </div>
                         <div class="react_btns">
                             <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
                             <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
                         </div>
                         <div class="item_description">
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et natus illum esse reiciendis maxime expedita eius. Harum, delectus rerum iure quos, eos voluptates sapiente placeat velit nesciunt, dolores atque expedita.</p>
-                        </div>
+                            <p>${item.data[i].description}</p>                        </div>
                     </div>
                 </div>`
                 product_items_container_fill.appendChild(product_item);
             }
+        return;
         }
     });
 }

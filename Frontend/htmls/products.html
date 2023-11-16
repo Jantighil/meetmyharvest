@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HARVESTSHQ PRODUCTS</title>
+    <link
+      rel="shortcut icon"
+      href="/front/images/logo_with_bg.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="/Frontend/assets/css/products.css">
 </head>
 <body onload="displayProducts();">
@@ -50,8 +55,8 @@
                 <div class="search_input">
                     <img src="/Frontend/assets/images/icon/search-alt-svgrepo-com.png" alt="">
                     <div class="line"></div>
-                    <input id="search" class="item_search" type="search" placeholder="Search..." oninput="searchProducts();">
-                    <!-- <input id="search" class="item_search" type="search" placeholder="Search..." onchange="searchProducts();"> -->
+                    <!-- <input id="search" class="item_search" type="search" placeholder="Search..." oninput="searchProducts();"> -->
+                    <input id="search" class="item_search" type="search" placeholder="Search..." onchange="searchProducts();">
                 </div>
                 <div class="filter_buttons">
                     <button id="btnfill1" value="rice" class="filter_btn selected" type="button" onclick="filterProducts(1);">Rice(<span>64</span>)</button>
@@ -60,16 +65,6 @@
                     <button id="btnfill4" value="onions" class="filter_btn" type="button" onclick="filterProducts(4);">Onions(<span>25</span>)</button>
                     <button id="btnfill5" value="yam" class="filter_btn" type="button" onclick="filterProducts(5);">Yam(<span>15</span>)</button>
                 </div>
-
-                <!-- <div id="searchItems">
-                    <p id="prod_name"></p>
-                    <p id="prod_desc"></p>
-                    <p id="prod_quantity"></p>
-                    <p id="prod_price"></p>
-                    <p id="prod_location"></p>
-                </div>
-                <div id="doubleItems"></div>
-                <div id="allItems"></div> -->
 
                 <div id="product_items_container" class="product_items_container">
                     

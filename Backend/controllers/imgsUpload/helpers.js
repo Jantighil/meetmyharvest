@@ -1,4 +1,3 @@
-// const express = require('express')
 const multer  = require('multer')
 const upload = multer({ dest: 'meetmyharvest/' })
 
@@ -6,16 +5,15 @@ const cloudinary = require('cloudinary').v2;
 
             
 cloudinary.config({ 
-  cloud_name: process.env.CLOUD_NAME, 
-  api_key: process.env.API_KEY, 
-  api_secret: process.env.API_SECRET 
+  cloud_name: `fortuneify`, 
+  api_key: `845998354639772`, 
+  api_secret: `w5khFH094yXXSyAtYUVDzh6WmdI` 
 });
-
 
 const uploadImage = async (url) => {
   try {
     const result = await cloudinary.uploader.upload(`${url}`, {folder: "meetmyharvest"})
-    console.log(result); 
+    // console.log(result); 
   } catch (error) {
     return error;
   }
@@ -37,5 +35,5 @@ const deleteImage = async (publicId) => {
   }
       
 
-module.exports = { uploadImage, deleteImage, upload};
+module.exports = { uploadImage, deleteImage, upload, cloudinary};
 
