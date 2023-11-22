@@ -182,3 +182,52 @@ email.value = 'fortune@gmail.com';
 locaton.value = 'kaduna'
 mobile_no.value = '09043652728';
 
+
+
+
+
+//  my square image
+const imageUpload = document.getElementById('file');
+const selectedImage = document.getElementById('selected-image');
+// function circleImg() {
+    imageUpload.addEventListener('change', function () {
+        const file = imageUpload.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                selectedImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+// }
+
+
+// const uploadButton = document.querySelector('.upload');
+// const imageContainer = document.querySelector('.img_add_del');
+
+// uploadButton.addEventListener('click', () => {
+// // Get the file input element.
+// const fileInputElement = document.querySelector('.upload input[type="file"]');
+
+// // Get the file from the user.
+// const file = fileInputElement.files[0];
+
+// // Create a FileReader object to read the image file.
+// const reader = new FileReader();
+
+// // Load the image file into the FileReader object.
+// reader.onload = () => {
+//     // Create a new image element.
+//     const image = new Image();
+
+//     // Set the image element's src attribute to the image data.
+//     image.src = reader.result;
+
+//     // Append the image element to the image container.
+//     imageContainer.appendChild(image);
+// };
+
+// // Start reading the image file.
+// reader.readAsDataURL(file);
+// });

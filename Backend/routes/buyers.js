@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router({ mergeParams: true});
+const helpers = require("../controllers/imgsUpload/helpers");
 const { getBuyers, getOneBuyer, postBuyers, patchBuyer, deleteBuyer } = require("../controllers/buyers/buyers")
 const { patchBuyerPassword, checkoldPassword} = require("../controllers/buyers/changePassword")
 
@@ -11,8 +12,9 @@ router.get("/", getBuyers)
 router.get("/:buyerName", getOneBuyer)
 
 //  POST/ADD A BUYERS
-// router.post("/", postBuyers)
-router.post("/:username", postBuyers)
+router.post("/", helpers.upload.single('avatar'), postBuyers)
+router.post("/:username", helpers.upload.single('avatar'), postBuyers)
+// router.post("/:username", postBuyers)
 
 //  PATCH/UPDATE A PARTICULAR BUYER BY NAME
 router.patch("/:buyerName", patchBuyer)

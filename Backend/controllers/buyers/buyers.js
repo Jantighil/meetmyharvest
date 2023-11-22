@@ -1,5 +1,5 @@
 const db = require("../../db");
-
+const {cloudinary} = require("../imgsUpload/helpers");
 
 exports.getBuyers = async (req, res, next) => {
     try {
@@ -27,10 +27,17 @@ exports.getOneBuyer = async (req, res, next) => {
 
 exports.postBuyers = async (req, res, next) => {
     try {
+        const img = req.file;
+        try {
+            var result = await cloudinary.uploader.upload(`${img.path}`, {folder: "meetmyharvest"})
+            console.log({message: "image uploaded successfully!"}); 
+          } catch (error) {
+            return error;
+          }
         const buyerUser = await db.query("SELECT user_id FROM users WHERE username ILIKE $1", [req.params.username]);
         const buyer = await db.query("INSERT INTO buyers (buyer_id, firstname, lastname, username, email, location, mobile_no, dp_public_id, dp_url) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *", 
-            [buyerUser.rows[0].user_id, req.body.fname, req.body.lname, req.params.username, req.body.mail, req.body.place, req.body.mobile, req.body.dp_public_id, req.body.dp_url]);
-        res.json({message: "Buyer Added Successfully!!", data: buyer.rows[0]});
+            [buyerUser.rows[0].user_id, req.body.fname, req.body.lname, req.params.username, req.body.mail, req.body.place, req.body.mobile, result.public_id, result.secure_url]);
+        res.json({success: true, message: "Buyer Added Successfully!!", ImgData: result, data: buyer.rows[0]});
     } catch (err) {
         return next(err);
     }

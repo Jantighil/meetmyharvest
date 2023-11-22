@@ -33,12 +33,9 @@ async function displayProducts() {
     .then(response => response.json())
     .then(item => {
         if (item.success == true) {
-            if (product_items_container.style.display = 'grid') {
-                product_items_container.style.display = 'none';
-            }
-            product_items_container.style.display = 'grid';
-            product_items_container_fill.style.display = 'none';
-            product_items_container_search.style.display = 'none';
+            product_items_container.innerHTML = ``;
+            product_items_container_search.innerHTML = ``;
+            product_items_container_fill.innerHTML = ``;
 
             for (let i = 0; i < item.data.length; i++) {
                 const product_item = document.createElement("div");
@@ -54,9 +51,9 @@ async function displayProducts() {
                     <div class="product_details">
                         <div class="item_info">
                             <h3 class="product_name">${item.data[i].name.replace(item.data[i].name[0], item.data[i].name[0].toUpperCase())}</h3>
-                            <p> <span>${item.data[i].quantity}</span></p>
-                            <p> <span>${item.data[i].location.replace(item.data[i].location[0], item.data[i].location[0].toUpperCase())}</span></p>
-                            <p> <span>₦${item.data[i].price}</span></p>
+                            <p class="product_info">Quantity: <span>${item.data[i].quantity}</span></p>
+                            <p class="product_info">Location: <span>${item.data[i].location.replace(item.data[i].location[0], item.data[i].location[0].toUpperCase())}</span></p>
+                            <p class="product_info">Price: <span>₦${item.data[i].price}</span></p>
                         </div>
                     </div>
                     <div class="react_btns">
@@ -90,17 +87,16 @@ async function searchProducts() {
     .then(response => response.json())
     .then(item => {
         if (item.success == true) {
-            product_items_container_search.style.display = 'none';
-            product_items_container.style.display = 'none';
-            product_items_container_fill.style.display = 'none';
-            product_items_container_search.style.display = 'grid';
+            product_items_container.innerHTML = ``;
+            product_items_container_search.innerHTML = ``;
+            product_items_container_fill.innerHTML = ``;
+            // product_items_container_search.style.display = 'grid';
 
             for (let i = 0; i < item.data.length; i++) {
                 const product_item = document.createElement("div");
                 product_item.classList.add('product_item');
                 
                 var imgurl = item.data[i].img_url;
-                // src = '/Frontend/assets/images/offer2.png'
                 product_item.innerHTML = `
                 <div class="item_image">
                     <img src=${imgurl} alt="">
@@ -109,17 +105,17 @@ async function searchProducts() {
                     <div class="product_details">
                         <div class="item_info">
                             <h3 class="product_name">${item.data[i].name.replace(item.data[i].name[0], item.data[i].name[0].toUpperCase())}</h3>
-                            <p> <span>${item.data[i].quantity}</span></p>
-                            <p> <span>${item.data[i].location.replace(item.data[i].location[0], item.data[i].location[0].toUpperCase())}</span></p>
-                            <p> <span>₦${item.data[i].price}</span></p>
+                            <p>Quantity: <span>${item.data[i].quantity}</span></p>
+                            <p>Location: <span>${item.data[i].location.replace(item.data[i].location[0], item.data[i].location[0].toUpperCase())}</span></p>
+                            <p>Price: <span>₦${item.data[i].price}</span></p>
                         </div>
-                        <div class="react_btns">
-                            <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
-                            <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
-                        </div>
-                        <div class="item_description">
-                            <p>${item.data[i].description}</p>
-                        </div>
+                    </div>
+                    <div class="react_btns">
+                        <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                        <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                    </div>
+                    <div class="item_description">
+                        <p>${item.data[i].description}</p>
                     </div>
                 </div>`
                 product_items_container_search.appendChild(product_item);
@@ -145,17 +141,15 @@ async function filterProducts(id) {
     .then(response => response.json())
     .then(item => {
         if (item.success == true) {
-            product_items_container_fill.style.display = 'none';
-            product_items_container.style.display = 'none';
-            product_items_container_search.style.display = 'none';
-            product_items_container_fill.style.display = 'grid';
+            product_items_container.innerHTML = ``;
+            product_items_container_search.innerHTML = ``;
+            product_items_container_fill.innerHTML = ``;
 
             for (let i = 0; i < item.data.length; i++) {
                 const product_item = document.createElement("div");
                 product_item.classList.add('product_item');
                 
                 var imgurl = item.data[i].img_url;
-                // src = '/Frontend/assets/images/offer2.png'
                 product_item.innerHTML = `
                 <div class="item_image">
                     <img src=${imgurl} alt="">
@@ -164,16 +158,17 @@ async function filterProducts(id) {
                     <div class="product_details">
                         <div class="item_info">
                             <h3 class="product_name">${item.data[i].name.replace(item.data[i].name[0], item.data[i].name[0].toUpperCase())}</h3>
-                            <p> <span>${item.data[i].quantity}</span></p>
-                            <p> <span>${item.data[i].location.replace(item.data[i].location[0], item.data[i].location[0].toUpperCase())}</span></p>
-                            <p> <span>₦${item.data[i].price}</span></p>
+                            <p>Quantity: <span>${item.data[i].quantity}</span></p>
+                            <p>Location: <span>${item.data[i].location.replace(item.data[i].location[0], item.data[i].location[0].toUpperCase())}</span></p>
+                            <p>Price: <span>₦${item.data[i].price}</span></p>
                         </div>
-                        <div class="react_btns">
-                            <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
-                            <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
-                        </div>
-                        <div class="item_description">
-                            <p>${item.data[i].description}</p>                        </div>
+                    </div>
+                    <div class="react_btns">
+                        <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
+                        <button class="addtocart"><img src="/Frontend/assets/images/icon/add-to-favorites-svgrepo-com.png" alt=""></button>
+                    </div>
+                    <div class="item_description">
+                        <p>${item.data[i].description}</p>
                     </div>
                 </div>`
                 product_items_container_fill.appendChild(product_item);

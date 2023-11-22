@@ -30,6 +30,7 @@ async function submitForm() {
                 errorMessage.classList.add('valid');
 
                 localStorage.setItem("token", data.token);
+                localStorage.setItem("user_id", data.data[0].user_id);
                 localStorage.setItem("username", data.data[0].username);
 
                 setTimeout(function() {

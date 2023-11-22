@@ -29,7 +29,6 @@ exports.checkUserExists = async (req, res, next) => {
             // the third parameter is an object where we can specify certain properties of the token 
             // expire in one hour
             
-        // res.json({match: comparePassword, data: user.rows[0], logs: addLogs.rows[0]});
         res.json({match: comparePassword, data: user.rows, logs: addLogs.rows[0], token});
     } catch (err) {
         return next(err);

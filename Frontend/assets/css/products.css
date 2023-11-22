@@ -427,6 +427,15 @@ input[type="search"]:focus {
     .product_name {
         color: #292902;
     }
+    .product_info {
+        color: #195012;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .product_info > span {
+        font-size: 16px;
+        font-weight: 400;
+    }
     .react_btns {
         /* border: 1px solid blue; */
         display: flex;

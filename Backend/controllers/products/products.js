@@ -15,7 +15,7 @@ exports.getAllProducts = async (req, res, next) => {
 
 exports.getCertainProduct = async (req, res, next) => {
     try {
-        const products = await db.query("SELECT * FROM items where name ILIKE $1", [req.params.productName+'%']);
+        const products = await db.query("SELECT * FROM items where name ILIKE $1", ['%'+req.params.productName+'%']);
         if (products.rows.length === 0) {
             return res.status(404).send({data: "Product not found!"})
         }
@@ -35,7 +35,7 @@ exports.addProduct = async (req, res, next) => {
             return error;
           }
         const products = await db.query("INSERT INTO items (name, quantity, description, price, location, img_public_id, img_url) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *", 
-            [req.body.name, req.body.quantity, req.body.description, req.body.price, req.body.location, result.public_id, result.url]);
+            [req.body.name, req.body.quantity, req.body.description, req.body.price, req.body.location, result.public_id, result.secure_url]);
         res.json({success: true, message: "Product Added Sucessfully", imgData: result, data: products.rows[0]});
     } catch (err) {
         return next(err);

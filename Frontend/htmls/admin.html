@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEETMYHARVEST ADMIN</title>
+    <link rel="stylesheet" href="/Frontend/assets/css/admin.css">
+</head>
+<body>
+    
+    <main class="main" id="main">
+        <div class="page_container" id="">
+            <div class="side_navs" id="">
+                <div class="logo" id="" onclick="window.location = '/front/index.html'">
+                    <img src="/front/images/logo_noBG.png" onclick="window.location = '/front/index.html'">
+                    <h4 onclick="window.location = '/front/index.html'" class="" id="">MeetMyHarvest</h4>
+                </div>
+
+                <div class="sideLinksContainer" id="">
+                    <!-- <div class="" id="">
+                        <h4>Main</h4>
+                    </div> -->
+                    <div class="links-container">
+                        <div class="link-img-name" id="">
+                            <img src="/Frontend/assets/images/icon/dashboard1.png" alt="">
+                            <div class="name_dashboard"><h4>Dashboard</h4></div>
+                        </div>
+                        <div class="dropdown" id="">
+                            <div class="link-img-name" id="">
+                                <img src="/Frontend/assets/images/icon/users2.png" alt="">
+                                <div class="name_user"><h4>Users</h4></div>
+                                <div class="drop_arrow">
+                                    <img src="/Frontend/assets/images/icon/arrow1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="dropdown-content" id="">
+                                <a>View Buyers</a>
+                                <a>View Farmers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown" id="">
+                            <div class="link-img-name" id="">
+                                <img src="/Frontend/assets/images/icon/admin1.png" alt="">
+                                <div class="name_admins"><h4>Admins</h4></div>
+                                <div class="drop_arrow">
+                                    <img src="/Frontend/assets/images/icon/arrow1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="dropdown-content" id="">
+                                <a>Add Admin</a>
+                                <a>View Admins</a>
+                            </div>
+                        </div>
+                        <div class="dropdown" id="">
+                            <div class="link-img-name" id="">
+                                <img src="/Frontend/assets/images/icon/products.png" alt="">
+                                <div class="name_products"><h4>Products</h4></div>
+                                <div class="drop_arrow">
+                                    <img src="/Frontend/assets/images/icon/arrow1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="dropdown-content" id="">
+                                <a>Add Products</a>
+                                <a>View Products</a>
+                            </div>
+                        </div>
+                        <div class="dropdown" id="">
+                            <div class="link-img-name" id="">
+                                <img src="/Frontend/assets/images/icon/chat1.png" alt="">
+                                <div class="name_chat"><h4>Chat</h4></div>
+                                <div class="drop_arrow">
+                                    <img src="/Frontend/assets/images/icon/arrow1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="dropdown-content" id="">
+                                <a>Chat Buyers</a>
+                                <a>Chat Farmers</a>
+                            </div>
+                        </div>
+                        <div class="dropdown" id="">
+                            <div class="link-img-name" id="">
+                                <img src="/Frontend/assets/images/icon/orders.png" alt="">
+                                <div class="name_orders"><h4>Orders</h4></div>
+                                <div class="drop_arrow">
+                                    <img src="/Frontend/assets/images/icon/arrow1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="dropdown-content" id="">
+                                <a>View orders</a>
+                            </div>
+                        </div>
+                        <div class="" id="">
+                            <div class="link-img-name" id="">
+                                <img src="/Frontend/assets/images/icon/logout1.png" alt="">
+                                <div class="name_logout"><h4>Logout</h4></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile_info" id="">
+                    <div class="profile_img" id="">
+                        <img src="/Frontend/assets/images/icons/avatar1.jpg" alt="">
+                    </div>
+                    <h5>Fortune Ifeanyi</h5>
+                    <p>fortuneify@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="page_details" id="">
+                <div class="header" id="">
+                    <div class="dashboard" id="">
+                        <h4>Dashboard ✌</h4>
+                    </div>
+                    <div class="search-notification-profile" id="">
+                        <div class="search_container" id="">
+                            <div class="search_icon" id="">
+                                <img src="/Frontend/assets/images/icon/search-alt-svgrepo-com.png" alt="">
+                            </div>
+                            <input type="search" name="" id="" placeholder="Search an action">
+                        </div>
+                        <div class="notification" id="">
+                            <img src="/Frontend/assets/images/icon/notification.png" alt="">
+                        </div>
+                        <div class="header_profile_img" id="">
+                            <img src="/Frontend/assets/images/icons/avatar1.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="analytics_details" id="">
+                    <div class="analytics_box" id="revenue">
+                        <div class="analytic_title" id="">
+                            <h3 style="color: #f5f5bf;">Total Revenue</h3>
+                            <h4>₦20,000,000</h4>
+                        </div>
+                        <div class="small_chart" id="">
+                            <img src="chart" alt="">
+                        </div>
+                    </div>
+                    <div class="analytics_box" id="users">
+                        <div class="analytic_title" id="">
+                            <h3 style="color: #f5f5bf;">Total Users</h3>
+                            <h4>70,000</h4>
+                        </div>
+                        <div class="small_chart" id="">
+                            <img src="chart" alt="">
+                        </div>
+                    </div>
+                    <div class="analytics_box" id="farmers">
+                        <div class="analytic_title" id="">
+                            <h3 style="color: #f5f5bf;">Total Farmers</h3>
+                            <h4>24,437</h4>
+                        </div>
+                        <div class="small_chart" id="">
+                            <img src="chart" alt="">
+                        </div>
+                    </div>
+                    <div class="analytics_box" id="buyers">
+                        <div class="analytic_title" id="">
+                            <h3 style="color: #f5f5bf;">Total Buyers</h3>
+                            <h4>45,563</h4>
+                        </div>
+                        <div class="small_chart" id="">
+                            <img src="chart" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts_container" id="">
+                    <div class="chart_box" id="">
+                        <div class="chart_title" id="">
+                            <h4>Sales Report</h4>
+                        </div>
+                        <div class="chart">
+                            <img src="/Frontend/assets/images/chart1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="chart_box" id="">
+                        <div class="chart_title" id="">
+                            <h4>User Stats</h4>
+                        </div>
+                        <div class="chart">
+                            <img src="/Frontend/assets/images/chart2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admins">
+                    <div class="header_title">   
+                        <h4>Administrators</h4>
+                        <div class="adm_search_container" id="">
+                            <div class="search_icon" id="">
+                                <img src="/Frontend/assets/images/icon/search-alt-svgrepo-com.png" alt="">
+                            </div>
+                            <input type="search" name="" id="" placeholder="Search an Admin">
+                        </div>
+                        <div class="add-admin-plus"><img src="/Frontend/assets/images/icon/plus.png" alt=""></div>
+                    </div>
+
+                    <div class="admin_titles">
+                        <div class="title"><p>Name</p></div>
+                        <div class="title"><p>Username</p></div>
+                        <div class="title"><p>Date</p></div>
+                        <div class="title"><p>Status</p></div>
+                        <div class="title"><p>More</p></div>
+                    </div>
+                    <div class="admin_person">
+                        <div class="adm-img-name">
+                            <div class="adm-img">
+                                <img src="/Frontend/assets/images/icons/avatar1.jpg" alt="">
+                            </div>
+                            <p>First Second</p>
+                        </div>
+                        <div class="adm-username">
+                            <p>Username</p>
+                        </div>
+                        <div class="adm-join-date">
+                            <p>Nov 20th, 2023</p>
+                        </div>
+                        <div class="adm-status">
+                            <div class="status"><p>Active</p></div>
+                        </div>
+                        <div class="adm-action">
+                            <div class="deactivate"><p>Deactivate</p></div>
+                        </div>
+                    </div>
+                    <div class="admin_person">
+                        <div class="adm-img-name">
+                            <div class="adm-img">
+                                <img src="/Frontend/assets/images/icon/avatar2.png" alt="">
+                            </div>
+                            <p>First Second</p>
+                        </div>
+                        <div class="adm-username">
+                            <p>Username</p>
+                        </div>
+                        <div class="adm-join-date">
+                            <p>Nov 20th, 2023</p>
+                        </div>
+                        <div class="adm-status">
+                            <div class="inactive-status"><p>Inactive</p></div>
+                        </div>
+                        <div class="adm-action">
+                            <div class="activate"><p>Activate</p></div>
+                        </div>
+                    </div>
+                    <div class="admin_person">
+                        <div class="adm-img-name">
+                            <div class="adm-img">
+                                <img src="/Frontend/assets/images/icons/avatar.jpg" alt="">
+                            </div>
+                            <p>First Second</p>
+                        </div>
+                        <div class="adm-username">
+                            <p>Username</p>
+                        </div>
+                        <div class="adm-join-date">
+                            <p>Nov 20th, 2023</p>
+                        </div>
+                        <div class="adm-status">
+                            <div class="status"><p>Active</p></div>
+                        </div>
+                        <div class="adm-action">
+                            <div class="deactivate"><p>Deactivate</p></div>
+                        </div>
+                    </div>
+                    <div class="admin_person">
+                        <div class="adm-img-name">
+                            <div class="adm-img">
+                                <img src="/Frontend/assets/images/icon/avatar3.png" alt="">
+                            </div>
+                            <p>First Second</p>
+                        </div>
+                        <div class="adm-username">
+                            <p>Username</p>
+                        </div>
+                        <div class="adm-join-date">
+                            <p>Nov 20th, 2023</p>
+                        </div>
+                        <div class="adm-status">
+                            <div class="status"><p>Active</p></div>
+                        </div>
+                        <div class="adm-action">
+                            <div class="deactivate"><p>Deactivate</p></div>
+                        </div>
+                    </div>
+                    <div class="admin_person">
+                        <div class="adm-img-name">
+                            <div class="adm-img">
+                                <img src="/Frontend/assets/images/icon/avatar4.png" alt="">
+                            </div>
+                            <p>First Second</p>
+                        </div>
+                        <div class="adm-username">
+                            <p>Username</p>
+                        </div>
+                        <div class="adm-join-date">
+                            <p>Nov 20th, 2023</p>
+                        </div>
+                        <div class="adm-status">
+                            <div class="status"><p>Active</p></div>
+                        </div>
+                        <div class="adm-action">
+                            <div class="deactivate"><p>Deactivate</p></div>
+                        </div>
+                    </div>
+                    <div class="admin_person">
+                        <div class="adm-img-name">
+                            <div class="adm-img">
+                                <img src="/Frontend/assets/images/icon/avatar5.png" alt="">
+                            </div>
+                            <p>First Second</p>
+                        </div>
+                        <div class="adm-username">
+                            <p>Username</p>
+                        </div>
+                        <div class="adm-join-date">
+                            <p>Nov 20th, 2023</p>
+                        </div>
+                        <div class="adm-status">
+                            <div class="inactive-status"><p>Inactive</p></div>                        </div>
+                        <div class="adm-action">
+                            <div class="activate"><p>Activate</p></div>                        </div>
+                    </div>
+                </div>
+
+                <div class="next"></div>
+            </div> 
+        </div>
+    </main>
+
+
+
+
+
+
+    <script src="/Frontend/assets/js/admin.js"></script>
+</body>
+</html>

@@ -11,7 +11,7 @@
     />
     <link rel="stylesheet" href="/Frontend/assets/css/buyerUser.css">
 </head>
-<body>
+<body onload="showCart();">
     <div class="wholepage">
         <nav class="navbar">
             <div class="nav_link">
@@ -71,10 +71,10 @@
                                     <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/cartBGC.png" alt="">
                                     <h4 id="text3"  class="dashboard_navs_links_item" onclick="toggleContent(3)">Cart</h4>
                                 </div>
-                                <!-- <div id="navlink6" class="dashboard_nav_links_img_text">
+                                <div id="navlink6" class="dashboard_nav_links_img_text">
                                     <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/bagBGC.png" alt="">
-                                    <h4 id="text6"  class="dashboard_navs_links_item" onclick="toggleContent(6)">Farmers</h4>
-                                </div> -->
+                                    <h4 id="text6"  class="dashboard_navs_links_item" onclick="window.location = '/Frontend/htmls/products.html'">Products</h4>
+                                </div>
                                 <div id="navlink4" class="dashboard_nav_links_img_text">
                                     <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/bagBGC.png" alt="">
                                     <h4 id="text4"  class="dashboard_navs_links_item" onclick="toggleContent(4)">Purchased Items</h4>
@@ -135,52 +135,45 @@
                             <p id="profile_page_error" class="page_error"></p>
                         </div>
                         <div id="errorMessage"></div>
-                        <!-- <form action="http://localhost:8000/uploadimg/profile" method="post" enctype="multipart/form-data"> -->
-                            <div id="" class="img_add_del">
-                                <!-- <input type="file" name="avatar" id="file"> -->
-                                <img src="/Frontend/assets/images/icons/avatar1.jpg" alt="">
+                        <form id="user_profile">
+                            <div id="" for="image-upload" class="img_add_del">
+                                <input type="file" name="avatar" id="file" accept="image/*">
+                                <div class="img_container" >
+                                    <img id="selected-image" src="/Frontend/assets/images/icons/avatar1.jpg" alt="">    
+                                </div>
                                 <div id="" class="add_del_btns">
-                                    <input id="" class="upload" type="button" onclick="addimage();" value="Upload new picture">
-                                    <input id="" class="delete" type="submit" value="Delete">
+                                    <input id="upload" class="upload" type="button" onclick="addimage();" value="Upload new picture">
+                                    <input id="delete" class="delete" type="submit" value="Delete">
                                 </div>
                             </div>
-                        <!-- </form> -->
-                        <div id="" class="input_details">
-                            <div class="names">
-                                <label id="" class="labels" for="firstname">Firstname <br>  
-                                    <input class="inputtext1" type="text" name="firstname" placeholder="Firstname" id="firstname">
-                                    <p id="fname-error" class="nameerror"></p>
-                                 <br></label><br>
-                                <label id="" class="labels" for="lastname">Surname <br> 
-                                    <input class="inputtext1" type="text" name="lastname" placeholder="Surname" id="lastname">
-                                    <p id="lname-error" class="nameerror"></p>
-                                </label><br>
+                            <div id="" class="input_details">
+                                <div class="names">
+                                    <label id="" class="labels" for="firstname">Firstname <br>  
+                                        <input name="fname" class="inputtext1" type="text" name="firstname" placeholder="Firstname" id="firstname">
+                                        <p id="fname-error" class="nameerror"></p>
+                                    <br></label><br>
+                                    <label id="" class="labels" for="lastname">Surname <br> 
+                                        <input name="lname" class="inputtext1" type="text" name="lastname" placeholder="Surname" id="lastname">
+                                        <p id="lname-error" class="nameerror"></p>
+                                    </label><br>
+                                </div>
+                                <label id="" class="labels" for="email">Email <br> 
+                                    <input name="mail" class="inputtext" type="email" name="email" placeholder="Email" id="email">
+                                </label>
+                                <p id="email-error" class="error"></p>
+                                <label id="" class="labels" for="location">Location <br> 
+                                    <input name="place" class="inputtext" type="text" name="location" id="location" placeholder="Location">
+                                </label>
+                                <p id="location-error" class="error"></p>
+                                <label id="" class="labels" for="mobile_no" >Mobile <br> 
+                                    <input name="mobile" class="inputtext" type="number" name="mobile_no" id="mobile_no" placeholder="Mobile number" oninput="validateNumberInput(this, 11);"/>
+                                </label>
+                                <p id="mobileNo-error" class="error"></p>
+                                <div id="" class="save_btn">
+                                    <input class="savebtn" id="save_btn" type="button" value="Save Changes" onclick="updateProfile();">
+                                </div>
                             </div>
-                            <label id="" class="labels" for="email">Email <br> 
-                                <input class="inputtext" type="email" name="email" placeholder="Email" id="email">
-                            </label>
-                            <p id="email-error" class="error"></p>
-                            <label id="" class="labels" for="location">Location <br> 
-                                <!-- <select id="location" placeholder="dx" class="inputtext" name="states" style="width: 850px;">
-                                    <option value="" disabled selected>Select your location</option>
-                                    <option value="apple">Abia</option>
-                                    <option value="banana">Adamawa</option>
-                                    <option value="orange">Akwaibom</option>
-                                    <option value="strawberry">Anambra</option>
-                                    <option value="strawberry">Bauchi</option>
-                                </select> -->
-                                <input class="inputtext" type="text" name="location" id="location" placeholder="Location">
-                            </label>
-                            <p id="location-error" class="error"></p>
-                            <label id="" class="labels" for="mobile_no" >Mobile <br> 
-                                <!-- <input class="inputtext" type="text" name="mobile_no" id="mobile_no" placeholder="Mobile number" size="20" maxlength=11/> -->
-                                <input class="inputtext" type="number" name="mobile_no" id="mobile_no" placeholder="Mobile number" oninput="validateNumberInput(this, 11);"/>
-                            </label>
-                            <p id="mobileNo-error" class="error"></p>
-                            <div id="" class="save_btn">
-                                <input class="savebtn" id="save_btn" type="button" value="Save Changes" onclick="updateProfile();">
-                            </div>
-                        </div>
+                        </form>
                     </div>
 
                     <div id="content2" class="change_password">
@@ -219,60 +212,9 @@
                         <div class="maincartcontainer">
                             <div class="cartcontainer">
                                 <div class="cart_writeup">
-                                    <h4>Cart - <span>3</span> items</h4>
+                                    <h4>Cart - <span id="cart_total">0</span> items</h4>
                                 </div>
-                                <div class="items">
-                                    <div class="cart_item">
-                                        <div class="cart_item_img">
-                                            <img src="/Frontend/assets/images/product_img2.jpg" alt="">
-                                        </div>
-                                        <div class="product_details">
-                                            <h3 class="product_name">Mangoes</h3>
-                                            <p>Quantity: <span>2 basket</span></p>
-                                            <p>Farmer: <span>Jonathan</span></p>
-                                            <p>Price: <span>₦50,000</span></p>
-                                            <div class="react_btns">
-                                                <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
-                                                <button class="deleteCartitem"><img src="/Frontend/assets/images/icons/delete1.png" alt=""></button>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="react_btns">
-                                            <button class=""><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
-                                            <button class=""><img src="/Frontend/assets/images/icons/delete1.png" alt=""></button>
-                                        </div> -->
-                                    </div>
-                                    
-                                    <div class="cart_item">
-                                        <div class="cart_item_img">
-                                            <img src="/Frontend/assets/images/offer2.png" alt="">
-                                        </div>
-                                        <div class="product_details">
-                                            <h3 class="product_name">Pepper</h3>
-                                            <p>Quantity: <span>5 basket</span></p>
-                                            <p>Farmer: <span>Felicia</span></p>
-                                            <p>Price: <span>₦10,000</span></p>
-                                            <div class="react_btns">
-                                                <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
-                                                <button class="deleteCartitem"><img src="/Frontend/assets/images/icons/delete1.png" alt=""></button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="cart_item">
-                                        <div class="cart_item_img">
-                                            <img src="/Frontend/assets/images/offer1.png" alt="">
-                                        </div>
-                                        <div class="product_details">
-                                            <h3 class="product_name">Rice</h3>
-                                            <p>Quantity: <span>10 bags</span></p>
-                                            <p>Farmer: <span>Felix</span></p>
-                                            <p>Price: <span>₦500,000</span></p>
-                                            <div class="react_btns">
-                                                <button class="like"><img src="/Frontend/assets/images/icon/heart.png" alt=""></button>
-                                                <button class="deleteCartitem"><img src="/Frontend/assets/images/icons/delete1.png" alt=""></button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div id="cart-items" class="items">
                                     
                                 </div>
                             </div>
@@ -320,7 +262,7 @@
 
 
     <script>
-        const baseurl = `http://localhost:8000/uploadimg/profile`
+        /*const baseurl = `http://localhost:8000/uploadimg/profile`
 
         const addimage = async () => {
             fetch(baseurl, {
@@ -331,8 +273,9 @@
             .then(data => {
                 console.log(data);
             })
-        }
+        }*/
 
+        const user_id = localStorage.getItem("user_id");
         const username = localStorage.getItem("username");
         const token = localStorage.getItem("token");
 

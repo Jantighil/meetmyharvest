@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Paystack Payment</title>
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="text"],
+textarea,
+button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+textarea {
+  height: 80px; /* Adjust height for the address field */
+}
+
+button {
+  background-color: #4285f4;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1a73e8;
+}
+
+
+</style>
+<body>
+    <h1>Make a Payment</h1>
+    <form id="paymentForm">
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+  
+      <label for="amount">Amount (NGN):</label>
+      <input type="number" id="amount" name="amount" required><br><br>
+  
+      <label for="merchantUsername">Merchant Username:</label>
+      <input type="text" id="merchantUsername" name="merchantUsername" required><br><br>
+  
+      <label for="merchantEmail">Merchant Email:</label>
+      <input type="email" id="merchantEmail" name="merchantEmail" required><br><br>
+  
+      <label for="merchantAddress">Merchant Address:</label>
+      <textarea id="merchantAddress" name="merchantAddress" required></textarea><br><br>
+  
+      <label for="product">Product Description:</label>
+      <input type="text" id="product" name="product" required><br><br>
+  
+      <button type="button" id="payButton">Pay with Paystack</button>
+    </form>
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script>
+    const username_input = document.getElementById('textField');
+const email_input = document.getElementById('emailField');
+const password = document.getElementById('password_input');
+const mobile_no = document.getElementById('mobile_no_input');
+const checkbox = document.getElementById('checkbox_input');
+
+const errorMessage1 = document.querySelector('#username');      
+const errorMessage2 = document.querySelector('#email');      
+const errorMessage3 = document.querySelector('#password');          
+const errorMessage4 = document.querySelector('#confirm-password');
+const errorMessage5 = document.querySelector('#checkbox');      
+
+const btn = document.getElementById('btn');
+
+function changeBorderColor() {
+    const field1 = document.getElementById("textField")
+    const field2 = document.getElementById("emailField")
+    const field3 = document.getElementById("password_input")
+    const field4 = document.getElementById("mobile_no_input")
+
+    if (field1.value === '' || field1.value.trim().lenght < 3) {
+        field1.style.border = '1px solid #ccc'
+    } else {
+        field1.style.border = '1px solid green'   
+    }
+    if (field3.value === '') {
+        field3.style.border = '1px solid #ccc'
+    } else {
+        field3.style.border = '1px solid green'   
+    }
+    if (field4.value === '') {
+        field1.style.border = '1px solid #ccc'
+    } else {
+        field4.style.border = '1px solid green'   
+    }
+}
+
+const baseUrl = 'http://localhost:8000'
+async function submitForm() {
+    const errorMessage = document.getElementById('error');
+    const username = document.getElementById('textField').value;
+    const email =  document.getElementById('emailField').value;
+    const user_type =  document.querySelector('input[name="user"]:checked').value;
+    // console.log(user_type);
+    const password = document.getElementById('password_input').value;
+    const mobile_no = document.getElementById('mobile_no_input').value;
+    const checkbox = document.getElementById('checkbox_input');
+    
+    const user = (username === '' || username.trim().length < 3)
+    const mob_no = (mobile_no === '')
+    const checkBox = (!checkbox.checked)
+    // const radio = ((user_type !== 'Farmer') || (user_type !== 'Buyer'))
+
+    if((user) || (!email) || (!password) || (mob_no) || (checkBox)) {
+        errorMessage.innerHTML = 'Please fill in your details correctly!';
+        errorMessage.classList.add('error0');
+        return;
+    }
+
+    await fetch(baseUrl+'/auth/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, email, password, user_type, mobile_no })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success == true) {
+            errorMessage.innerHTML = 'Registration successful!';
+            errorMessage.classList.add('valid1');
+
+            setTimeout(function() {
+                var loadingPage = document.getElementById('loadingPage');
+                var content = document.getElementById('content');
+                loadingPage.style.display = 'block';
+                content.style.display = 'none';                  
+            }, 2000);
+
+            setTimeout(function() {
+                window.location = "http:/\/127.0.0.1:5501/Frontend/htmls/login.html"
+            }, 3000);
+        } else {
+            errorMessage.innerHTML = 'Something went wrong. Please try again.';
+            errorMessage.classList.add('error1');
+        }
+    });
+}
+
+
+username_input.addEventListener('input', (e) => {
+    if(username_input.value === ''){
+        errorMessage1.innerText = 'Please enter a name';
+        errorMessage1.classList.add('error');   
+    }
+    else if(username_input.value.trim().length < 3){
+        errorMessage1.innerHTML = 'Name must be at least 3 characters';
+        errorMessage1.classList.add('error');
+    }else{
+        errorMessage1.innerText = '';
+        errorMessage1.classList.add('error');
+        console.log("Username: " + username_input.value);
+    }
+    console.log("Username: " + username_input.value);
+})
+email_input.addEventListener('input', (e) => {
+    function check_email(email) {
+        const email_list = /[@]/;
+        const fullstop = /[.]/;
+        if (
+            email_list.test(email) &&
+            fullstop.test(email) 
+        ) {
+            errorMessage2.innerText = '';
+            errorMessage2.classList.add('error');
+            console.log("Email: " + email_input.value + " is correct");
+        }
+        else {
+            errorMessage2.innerText = "Email must be in *****@example.com";
+            errorMessage2.classList.add('error');
+        }
+    }
+    if(email_input.value === ''){
+        errorMessage2.innerText = 'Please enter an email';
+        errorMessage2.classList.add('error');
+    } 
+    else {
+        check_email(email_input.value);
+    }
+})
+    document.getElementById('payButton').addEventListener('click', function() {
+      const email = document.getElementById('email').value;
+      const amount = document.getElementById('amount').value;
+
+      const handler = PaystackPop.setup({
+        key: 'pk_test_362ec27e29c05b16e1bc9d25e895be18e732b7c5', // Replace with your Paystack public key
+        email,
+        amount: amount * 100, // Paystack amount is in kobo (multiply by 100)
+        currency: 'NGN',
+        ref: '' + Math.floor((Math.random() * 1000000000) + 1), // Generate a random reference
+        metadata: {
+          custom_fields: [
+            {
+              display_name: 'Email',
+              variable_name: 'email',
+              value: email,
+            }
+          ]
+        },
+        callback: function(response) {
+          // Handle the response here, e.g., update your database, show a success message, etc.
+          console.log('Payment complete!', response);
+          alert('Payment successful!');
+        },
+        onClose: function() {
+          console.log('Payment closed without completion');
+        }
+      });
+      handler.openIframe();
+    });
+  </script>
+</body>
+</html>

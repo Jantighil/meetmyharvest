@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEETMYHARVEST CUSTOMER</title>
+    <title>MEETMYHARVEST FARMER</title>
     <link
       rel="shortcut icon"
       href="/front/images/logo_with_bg.png"
@@ -12,16 +12,16 @@
     />
     <link rel="stylesheet" href="/Frontend/assets/css/farmerUser.css">
     <style>
-         input[type="text"], input[type="number"] {
+         /*.cart_item_img > input[type="text"], input[type="number"] {
             height: 34px;
             margin: 4px;
             padding-left: 5px;
             border-radius: 10px;
             border: 1px solid #ccc;
         }
-        input[type="text"], input[type="number"]:hover {
+        .cart_item_img > input[type="text"], input[type="number"]:hover {
             color: rgb(4, 61, 61);
-        }
+        }*/
         .product_info {
             font-size: 16px;
             font-weight: 500;
@@ -46,11 +46,11 @@
                 </div>
                 <div class="nav_links">
                     <ul class="nav_links_list">
-                        <li class="nav_links_list_item">OUR MISSION</li>
-                        <li class="nav_links_list_item">ABOUT</li>
-                        <li class="nav_links_list_item">FAQs</li>
-                        <li class="nav_links_list_item">PRODUCTS</li>
-                        <li class="nav_links_list_item">CONTACT</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/html/mission.html'">MISSION</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/html/about.html'">ABOUT</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/html/faq.html'">FAQs</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/htmls/products.html'">PRODUCTS</li>
+                        <li class="nav_links_list_item" onclick="window.location = '/Frontend/html/get.html'">CONTACT</li>
                     </ul>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                             <p>Hello, <br> <span  id="username">fortune</span></p>
                         </div>
                         <div class="cart_img">
-                            <a href=""><img src="/Frontend/assets/images/icon/cartBGC1.png" alt="cart basket"></a><div class="cart_number">2</div>
+                            <a href=""><img src="/Frontend/assets/images/icon/cartBGC1.png" alt="cart basket"></a><div class="cart_number"></div>
                         </div>
                         <div>
                             <input id="logout" class="nav_logout_btn" type="submit" onclick="logout();" value="Logout">
@@ -95,20 +95,25 @@
                                 </div>
                                 <div id="navlink3" class="dashboard_nav_links_img_text">
                                     <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/cartBGC.png" alt="">
-                                    <h4 id="text3"  class="dashboard_navs_links_item" onclick="toggleContent(3)">Product</h4>
+                                    <h4 id="text3"  class="dashboard_navs_links_item" onclick="toggleContent(3)">Add Products</h4>
                                 </div>
                                 <div id="navlink4" class="dashboard_nav_links_img_text">
                                     <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/bagBGC.png" alt="">
-                                    <h4 id="text4"  class="dashboard_navs_links_item" onclick="toggleContent(4)">View Product</h4>
+                                    <!-- <h4 id="text4"  class="dashboard_navs_links_item" onclick="window.location = '/Frontend/htmls/products.html'; toggleContent(4)">View Products</h4> -->
+                                    <h4 id="text4"  class="dashboard_navs_links_item" onclick="toggleContent(4)">View Products</h4>
                                 </div>
                                 <div id="navlink5" class="dashboard_nav_links_img_text">
-                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/settingsBGC.png" alt="">
-                                    <h4 id="text5"  class="dashboard_navs_links_item" onclick="toggleContent(5)">Settings</h4>
+                                    <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/chatBGC.png" alt="">
+                                    <h4 id="text5"  class="dashboard_navs_links_item" onclick="toggleContent(5)">Chat</h4>
                                 </div>
                                 <div class="dashboard_nav_links_img_text">
                                     <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icon/logoutBGC.png" alt="">
                                     <h4 id="" class="dashboard_navs_links_item" onclick="logout();">Log Out</h4>
                                 </div>
+                            </div>
+                            <div id="delete_account" class="dashboard_nav_links_img_text" >
+                                <img class="dashboard_navs_links_img" src="/Frontend/assets/images/icons/delete2.png" alt="">
+                                <h4 id="" class="del_account" onclick="logout(); deleteaccount();" >Delete Account</h4>
                             </div>
                         </div>
                     </div>
@@ -153,7 +158,47 @@
                             <p id="profile_page_error" class="page_error"></p>
                         </div>
                         <div id="errorMessage"></div>
-                        <div id="" class="img_add_del">
+                        
+                        <form id="user_profile">
+                            <div id="" for="image-upload" class="img_add_del">
+                                <input type="file" name="avatar" id="file" accept="image/*">
+                                <div class="img_container" >
+                                    <img id="selected-image" src="/Frontend/assets/images/icons/avatar1.jpg" alt="">    
+                                </div>
+                                <div id="" class="add_del_btns">
+                                    <input id="upload" class="upload" type="button" onclick="addimage();" value="Upload new picture">
+                                    <input id="delete" class="delete" type="submit" value="Delete">
+                                </div>
+                            </div>
+                            <div id="" class="input_details">
+                                <div class="names">
+                                    <label id="" class="labels" for="firstname">Firstname <br>  
+                                        <input name="fname" class="inputtext1" type="text" name="firstname" placeholder="Firstname" id="firstname">
+                                        <p id="fname-error" class="nameerror"></p>
+                                    <br></label><br>
+                                    <label id="" class="labels" for="lastname">Surname <br> 
+                                        <input name="lname" class="inputtext1" type="text" name="lastname" placeholder="Surname" id="lastname">
+                                        <p id="lname-error" class="nameerror"></p>
+                                    </label><br>
+                                </div>
+                                <label id="" class="labels" for="email">Email <br> 
+                                    <input name="mail" class="inputtext" type="email" name="email" placeholder="Email" id="email">
+                                </label>
+                                <p id="email-error" class="error"></p>
+                                <label id="" class="labels" for="location">Location <br> 
+                                    <input name="place" class="inputtext" type="text" name="location" id="location" placeholder="Location">
+                                </label>
+                                <p id="location-error" class="error"></p>
+                                <label id="" class="labels" for="mobile_no" >Mobile <br> 
+                                    <input name="mobile" class="inputtext" type="number" name="mobile_no" id="mobile_no" placeholder="Mobile number" oninput="validateNumberInput(this, 11);"/>
+                                </label>
+                                <p id="mobileNo-error" class="error"></p>
+                                <div id="" class="save_btn">
+                                    <input class="savebtn" id="save_btn" type="button" value="Save Changes" onclick="updateProfile();">
+                                </div>
+                            </div>
+                        </form>
+                        <!-- <div id="" class="img_add_del">
                             <img src="/Frontend/assets/images/icons/avatar1.jpg" alt="">
                             <div id="" class="add_del_btns">
                                 <input id="" class="upload" type="button" value="Upload new picture">
@@ -176,26 +221,17 @@
                             </label>
                             <p id="email-error" class="error"></p>
                             <label id="" class="labels" for="location">Location <br> 
-                                <!-- <select id="location" placeholder="dx" class="inputtext" name="states" style="width: 850px;">
-                                    <option value="" disabled selected>Select your location</option>
-                                    <option value="apple">Abia</option>
-                                    <option value="banana">Adamawa</option>
-                                    <option value="orange">Akwaibom</option>
-                                    <option value="strawberry">Anambra</option>
-                                    <option value="strawberry">Bauchi</option>
-                                </select> -->
                                 <input class="inputtext" type="text" name="location" id="location" placeholder="Location">
                             </label>
                             <p id="location-error" class="error"></p>
                             <label id="" class="labels" for="mobile_no" >Mobile <br> 
-                                <!-- <input class="inputtext" type="text" name="mobile_no" id="mobile_no" placeholder="Mobile number" size="20" maxlength=11/> -->
                                 <input class="inputtext" type="number" name="mobile_no" id="mobile_no" placeholder="Mobile number" oninput="validateNumberInput(this, 11);"/>
                             </label>
                             <p id="mobileNo-error" class="error"></p>
                             <div id="" class="save_btn">
                                 <input class="savebtn" id="save_btn" type="button" value="Save Changes" onclick="updateProfile();">
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div id="content2" class="change_password">
@@ -250,9 +286,9 @@
 
                     <div id="content3" class="cart">
                         <div id="cart" class="heading">
-                            <h2>PRODUCT</h2>
+                            <h2>ADD PRODUCTS</h2>
                         </div>
-
+                        <form id="image-upload-form">
                         <div class="maincartcontainer">
                             <div class="cartcontainer">
                                 <div class="cart_writeup">
@@ -261,28 +297,45 @@
                                 <div class="items">
                                     <div class="cart_item">
                                         <div class="cart_item_img">
-                                            <label for="productName">Product Name</label>
-                            <input style="width: 300%;" class="inputFields" type="text" id="productName" name="productName" required><br>
+                                            <label class="labels" id="labelsimg" for="productImage">Product Image</label>
+                                            <input type="file" id="itemfile" name="avatar" accept="image/*" required>
+                                            <div class="image-container">
+                                                <div class="item_img">
+                                                    <img id="selected-item" src="/Frontend/assets/images/tomatoes.jpg" alt="">
+                                                </div>
+                                                <div id="" class="add_del_btns">
+                                                    <input id="uploaditem" class="item-upload" type="button" onclick="addimage();" value="Upload item picture">
+                                                    <!-- <input id="delete" class="delete" type="submit" value="Delete"> -->
+                                                </div>
+                                            </div>
+                                            <div class="itemnames">
+                                                <label class="labels" for="productName">Product Name <br>
+                                                <input  class="inputtext2" type="text" id="productName" name="name" required><br>
+                                                </label>
+                                                <label class="labels" for="productQuantity">Product Quantity <br>
+                                                <input  class="inputtext2" type="text" id="productQuantity" name="quantity" required>
+                                                </label>
+                                            </div>
+                                            <div class="itemnames">
+                                                <label class="labels" for="productPrice">Product Price <br>
+                                                <input class="inputtext2" type="number" id="productPrice" name="price" required>
+                                                </label>
 
-                            <label for="productDescription">Product Description</label>
-                            <textarea style="width: 300%;" class="inputFields" id="productDescription" name="productDescription" required></textarea>
+                                                <label class="labels" for="productLocation">Product Location <br>
+                                                <input class="inputtext2" type="text" id="productLocation" name="location" required>
+                                                </label>
+                                            </div>
+                                            <label class="labels" for="productDescription">Product Description</label>
+                                            <textarea class="inputtext3" id="productDescription" name="description" required></textarea>
 
-                            <label for="productPrice">Product Price</label>
-                            <input style="width: 300%;" class="inputFields" type="number" id="productPrice" name="productPrice" required>
+                                            <!-- Image upload input
+                                            <label  for="productImage">Product Image</label>
+                                            <input  style="width: 300%;" class="inputfile" type="file" id="productImage" name="avatar" accept="image/*" required> -->
 
-                            <label for="productQuantity">Product Quantity</label>
-                            <input style="width: 300%;" class="inputFields" type="number" id="productQuantity" name="productQuantity" required>
-
-                            <label for="productLocation">Product Location</label>
-                            <input style="width: 300%;" class="inputFields" type="text" id="productLocation" name="productLocation" required>
-
-                            <!-- Image upload input -->
-                            <label  for="productImage">Product Image</label>
-                            <input  style="width: 300%;" class="inputFields" type="file" id="productImage" name="productImage" accept="image/*" required>
-
-                            <button class="nav_logout_btn" type="button" onclick="addProduct()">Add Product</button>
+                                            <button class="saveItemsbtn" type="button" onclick="submitProducts()">Add Product</button>
+                                        </div>
                         </form>
-                        </div>
+                    </div>
                     </div>
                     <div id="content5" class="next">
                         <div class="heading">
@@ -298,6 +351,22 @@
 
 
     <script>
+        //  my square image
+        const itemUpload = document.getElementById('itemfile');
+        const selectedItem = document.getElementById('selected-item');
+        // function circleImg() {
+            itemUpload.addEventListener('change', function () {
+                const file = itemUpload.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        selectedItem.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        // }
+
         const username = localStorage.getItem("username");
         const token = localStorage.getItem("token");
 
@@ -319,7 +388,49 @@
         const greeting = getGreeting();
         greetingElement.innerHTML = `${greeting}, ${username.replace(username[0], username[0].toUpperCase())}!`;
 
-        
+        const baseurl = 'http://localhost:8000'
+
+        async function submitProducts() {
+            var name = document.getElementById("productName").value;
+            var quantity = document.getElementById("productQuantity").value;
+            var description = document.getElementById("productDescription").value;
+            var price = document.getElementById("productPrice").value;
+            var location = document.getElementById("productLocation").value;
+            const errorMessage = document.getElementById("error");
+
+
+            if((!name) || (!quantity) || (!description) || (!price) || (!location)) {
+                errorMessage.innerHTML = 'Please fill in your Product\'s details correctly!';
+                errorMessage.classList.add('error');
+                return;
+            }
+
+            const form = document.getElementById('image-upload-form');
+            const formData = new FormData(form);
+
+            await fetch(baseurl+'/items', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                if (data.success == true) {
+                    // console.log('Product added successfully:', data);
+                    errorMessage.innerHTML = 'Product added successfully!';
+                    errorMessage.classList.add('valid');
+                } else if(data.success == false) {
+                    // console.error('Failed to add product:', data.message);
+                    errorMessage.innerHTML = 'Failed to add product! Please try again.';
+                    errorMessage.classList.add('error');
+                } else {
+                    // console.error('Error adding product:', error.message);
+                    errorMessage.innerHTML = 'Error adding product.';
+                    errorMessage.classList.add('error');
+                }
+            })
+        }
+
 
         // if(!token) {
         //     window.location = "/Frontend/htmls/login.html"
@@ -334,6 +445,7 @@
         }
         document.getElementById("logout").addEventListener("click", logout);
 
+        
     </script>
     <script src="/Frontend/assets/js/buyerUser.js"></script>
     <script src="/Frontend/assets/js/buyerUserReqs.js"></script>
